@@ -151,7 +151,7 @@ nav .search-icon {
 		transition: top 0.3s ease, opacity 0.1s ease;
 	}
 
-	nav form-active {
+	nav form.active {
 		top: 95px;
 		opacity: 1;
 		pointer-events: auto;
@@ -196,6 +196,13 @@ nav .search-icon {
 	nav .hide-icon {
 		display: none;
 	}
+
+	
+	nav .menu-icon span.hide,
+  nav .search-icon.hide {
+		display: none;
+	}
+
 
 	nav .cancel-icon-show {
 		display: block;
