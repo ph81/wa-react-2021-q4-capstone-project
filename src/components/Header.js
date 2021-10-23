@@ -22,7 +22,7 @@ const Header = () => {
                 <span><FaBars onClick={ToggleMenu} /></span>
             </div>
             <div className={styles.logo}>
-                NAKAMA
+                <a href="/">NAKAMA</a>
             </div>
             <div className={styles["nav-items"]}>
           
