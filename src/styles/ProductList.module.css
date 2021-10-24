@@ -9,6 +9,12 @@
   max-width: 1200px;
   margin: 0 auto;
   background: #fff;
+  padding-top: 1rem;
+}
+
+/* number of products found? */
+.list__container h4 {
+  width: 100%;
 }
 
 
@@ -77,11 +83,12 @@ margin-top: 3rem;
 text-align: left;
 }
 
+.filter__container h4 {
+  width: 100%;
+}
+
 .filter__category {
-padding: 20px 0;
-border-radius: 3px;
-text-align: center;
-font-size: 0.9em;
+padding: 10px 0;
 }
 
 
@@ -94,11 +101,22 @@ font-size: 0.9em;
 
 @media all and (max-width: 768px) {
 .filter__container {
-    flex-direction: row;
+    display: flex;
     width: 80vw;
     max-width: 80vw;
-    font-size: 0.9em;
+    font-size: 0.7rem;
+    margin-top: .7rem;
  }
+
+ .filter__container h4 {
+   width: 100%;
+ }
+
+ .filter__category {
+   display: flex;
+   flex-direction: row;
+ }
+ 
 
 }
 

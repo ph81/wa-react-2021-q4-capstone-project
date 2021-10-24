@@ -26,7 +26,7 @@ const ProductList = () => {
     }, [products]);
   
     useEffect(() => {
-      setProducts([]);
+      //setProducts([]);
   
       //console.log(filterArray);
   
@@ -40,19 +40,25 @@ const ProductList = () => {
    
     return (
       <section id="filterbycategory">
+        
         <div className={styles["filter__container"]}>
-        {categories.map(category => 
-            <div className={styles["filter__item"]} key={category.id}>
-               <label>
-                  <input type="checkbox" value={category.data.name} onChange={() => onChangeHandler(category.id)} />
-                  {category.data.name}        
-                </label>
-            </div>    
-      )}
-      
+          <h4>Products by category</h4>
+          <div className={styles["filter__category"]}>
+            {categories.map(category => 
+            
+                <div className={styles["filter__item"]} key={category.id}>
+                  <label>
+                      <input type="checkbox" value={category.data.name} onChange={() => onChangeHandler(category.id)} />
+                      {category.data.name}        
+                    </label>
+                </div>
+                  
+            )}
+          </div>
         </div>
    
         <div className={styles["list__container"]}>
+        
         {filterArray.length === 0 
 		      ?
 			      productList
