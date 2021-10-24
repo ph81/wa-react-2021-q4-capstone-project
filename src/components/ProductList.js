@@ -84,6 +84,14 @@ const ProductList = () => {
               </div>
            )
 		    }
+
+        <div className={styles.pagination}>
+          <a href="#">&laquo;</a>
+          <a className={styles["active"]} href="/">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">&raquo;</a>
+      </div>
        </div>
     </section>  
     )

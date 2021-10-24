@@ -13,7 +13,7 @@ const AllProducts =()  => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2500);
-  })
+  });
 
 
   return (
