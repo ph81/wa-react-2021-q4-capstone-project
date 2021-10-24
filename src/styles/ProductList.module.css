@@ -47,13 +47,13 @@
 }
 
 
-
 .list__title {
 
     color: #555;
     width: 90%;
     margin: 20px auto 0;
 }
+
 
 .list__price {
 
@@ -69,6 +69,12 @@
 .list__image img {
   width: 100%;
     height: auto;
+}
+
+.list__slug {
+  margin-top: 4px;
+  text-transform: uppercase;
+  height: 20px;
 }
 
 /* Filtering styling */

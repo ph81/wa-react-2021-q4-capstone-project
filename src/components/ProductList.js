@@ -65,10 +65,12 @@ const ProductList = () => {
 			      productList
             .map(product => 
               <div className={styles["list__item"]} key={product.id}>
-                  
+              
                 <div className={styles["list__image"]}>
                   <img src={product.data.mainimage.url} alt={product.data.name}  />
+                  
                 </div>
+               
                 <div className={styles["list__title"]}>{product.data.name}</div>
                 
                 <div className={styles["list__price"]}>$ {product.data.price}</div>
@@ -80,11 +82,13 @@ const ProductList = () => {
 		       .filter(product => product.data.category.id.includes(filterArray))
            .map(product => 
               <div className={styles["list__item"]} key={product.id}>
-                  
+                        
                 <div className={styles["list__image"]}>
                   <img src={product.data.mainimage.url} alt={product.data.name}  />
                 </div>
+                
                 <div className={styles["list__title"]}>{product.data.name}</div>
+        
                
                 <div className={styles["list__price"]}>$ {product.data.price}</div>
                    
