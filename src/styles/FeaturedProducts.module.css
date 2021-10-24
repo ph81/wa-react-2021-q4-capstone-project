@@ -79,3 +79,9 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+
+@media all and (max-width: 768px) {
+  .view__products {
+    width: 15rem;
+  }
+}
