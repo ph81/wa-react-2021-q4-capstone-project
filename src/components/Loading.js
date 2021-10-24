@@ -12,7 +12,7 @@ const Loading = () => {
                 color="#1e232b"
                 height={100}
                 width={100}
-                timeout={2500} //1.5 secs
+                timeout={2000} //1.5 secs
             />
         </div>
     )

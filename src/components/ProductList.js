@@ -48,7 +48,8 @@ const ProductList = () => {
             
                 <div className={styles["filter__item"]} key={category.id}>
                   <label>
-                      <input type="checkbox" value={category.data.name} onChange={() => onChangeHandler(category.id)} />
+                      <input type="checkbox"
+                      value={category.data.name} onChange={() => onChangeHandler(category.id)} />
                       {category.data.name}        
                     </label>
                 </div>
@@ -84,7 +85,7 @@ const ProductList = () => {
                   <img src={product.data.mainimage.url} alt={product.data.name}  />
                 </div>
                 <div className={styles["list__title"]}>{product.data.name}</div>
-                <div className={styles["list__title"]}>{product.data.category.slug}</div>
+               
                 <div className={styles["list__price"]}>$ {product.data.price}</div>
                    
               </div>
