@@ -1,7 +1,8 @@
+/* item list */
 
 .list__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   width: 70%;
@@ -97,10 +98,11 @@ font-size: 0.9em;
     width: 80vw;
     max-width: 80vw;
     font-size: 0.9em;
+ }
+
 }
 
-
-}
+/* pagination */
 
 .pagination {
   padding-top: 2rem;
