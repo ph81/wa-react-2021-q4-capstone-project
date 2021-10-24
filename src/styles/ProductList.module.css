@@ -104,8 +104,7 @@ font-size: 0.9em;
     display: flex;
     width: 80vw;
     max-width: 80vw;
-    font-size: 0.7rem;
-    margin-top: .7rem;
+    margin-top: 0;
  }
 
  .filter__container h4 {
@@ -114,7 +113,12 @@ font-size: 0.9em;
 
  .filter__category {
    display: flex;
-   flex-direction: row;
+   flex-flow: wrap;
+   padding: 0;
+ }
+
+ .filter__item {
+   font-size: 0.7rem;
  }
  
 
