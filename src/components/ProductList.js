@@ -28,7 +28,7 @@ const ProductList = () => {
     useEffect(() => {
       setProducts([]);
   
-      console.log(filterArray);
+      //console.log(filterArray);
   
       const filtered = productList.map((p) => ({
         ...p, filtered: p.data.category.id.includes(filterArray)
