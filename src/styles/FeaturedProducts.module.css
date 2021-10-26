@@ -30,11 +30,11 @@
     width: 100%;
   }
 }
-/*
+
 .product__item:hover {
   transform: scale(1.05);
 }
-*/
+
 .product__link {
   	text-decoration: none;
 }
