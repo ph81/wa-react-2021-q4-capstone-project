@@ -20,14 +20,10 @@ const AllProducts =()  => {
     <>
     <Header />
     <div className={styles.container}>
-      
       <main> 
-       
          {isLoading ? <Loading /> :  <ProductList /> }
-         
       </main>
       <Footer />
-      
     </div>
     </>
      
