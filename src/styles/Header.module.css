@@ -1,4 +1,3 @@
-
 nav {
 	background: white;
 	display: flex;
@@ -70,7 +69,7 @@ nav form button {
 }
 
 nav form button:hover {
-	background: #989898;
+	background: #e63600;
 }
 
 nav .menu-icon,
@@ -130,7 +129,7 @@ nav .search-icon {
 		transition: left 0.3s ease;
 	}
 
-	nav .nav-items.active {
+	nav .nav-items-active {
 		left: 0px;
 	}
 
@@ -152,7 +151,7 @@ nav .search-icon {
 		transition: top 0.3s ease, opacity 0.1s ease;
 	}
 
-	nav form.active {
+	nav .form-active {
 		top: 95px;
 		opacity: 1;
 		pointer-events: auto;
@@ -194,19 +193,25 @@ nav .search-icon {
 		display: block;
 	}
 
+	nav .hide-icon {
+		display: none;
+	}
+
+	
 	nav .menu-icon span.hide,
   nav .search-icon.hide {
 		display: none;
 	}
 
-	nav .cancel-icon.show {
+
+	nav .show {
 		display: block;
 	}
 }
 
 
 nav .logo.space {
-	color: #989898; 
+	color: red; 
 	padding: 0 5px 0 0;
 }
 

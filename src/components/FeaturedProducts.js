@@ -1,6 +1,8 @@
-import React from 'react'
 import dataProducts from '../mocks/en-us/featured-products.json'
 import styles from '../styles/FeaturedProducts.module.css'
+
+
+
 
 const FeaturedProducts = () => {
 
@@ -21,8 +23,8 @@ const FeaturedProducts = () => {
                     
                   </div>
             )}
-            
         </div>
+        <div className={styles["view__products"]}><a href="/allproducts"><span>View all our products</span></a></div>
         </section>
         
     )
