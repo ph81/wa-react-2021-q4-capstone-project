@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import { useRoutes } from 'hookrouter';
-import Routes from './helpers/Routes';
+import { useRoutes } from 'hookrouter';
+import routes from './helpers/Navigation'
 
 const App = () => {
-  return (
-    <Routes />
-  )
+  const routeResult = useRoutes(routes);
+  return routeResult;
 }
 
 const rootElement = document.getElementById("root");
