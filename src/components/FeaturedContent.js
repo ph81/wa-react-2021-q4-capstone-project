@@ -19,17 +19,11 @@ const FeaturedContent = () => {
 
 
     return (
-        <Swiper
-        navigation={true}
-        spaceBetween={50}
-        slidesPerView={1}
-        loop={true}
-        centeredSlides
-        >
+        <Swiper spaceBetween={50} slidesPerView={1} loop={true} centeredSlides>
 
         {featuredBanners.map(banner => 
             <SwiperSlide key={banner.id} className={styles["swiper-slide"]}>
-            
+        
             <img src={banner.data.main_image.url} alt={banner.data.title} />
            
             </SwiperSlide>
