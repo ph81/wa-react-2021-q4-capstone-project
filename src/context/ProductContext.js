@@ -18,7 +18,7 @@ const initialState = {
   products: [],
   single_product_loading: false,
   single_product_error: false,
-  single_product: [],
+  single_product: {},
 }
 
 export const ProductsContext = createContext();
@@ -29,53 +29,73 @@ export const ProductsProvider = ({ children }) => {
 
   //fetching data
   const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.PRODUCTS_URL}`;
-  console.log(url);
+  //console.log(url);
+ 
 
-  const fetchProducts = async (url) => {
-  //const fetchProducts = () => {
-    dispatch({ type: GET_PRODUCTS_BEGIN })
-    
-    try {
-      
-      const response = await axios.get(url);
-      const products = response.data;
-      
-      //const products = data.results;
-      console.log(products);
-      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products })
-    } catch (error) {
-      dispatch({ type: GET_PRODUCTS_ERROR });
-    }
-  }
-
-  const fetchSingleProduct = async (url) => {
-  //const fetchSingleProduct = (id) => {
-    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
-
-    try {
-      
-      const response = await axios.get(url);
-      const singleProduct = response.data;
-      //const products = data.results;
-
-      //const singleProduct = products.find(product => singleProduct.id === id);
-      //console.log(singleProduct);
-
-      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
-
-    } catch (error) {
-      dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
-    }
-  }
-
+// fetching products
   useEffect(() => {
-    fetchProducts(url);
+    const source = axios.CancelToken.source();
+  
+    const fetchProducts = async () => {
+      dispatch({ type: GET_PRODUCTS_BEGIN })
+      try {
+        const response = await axios.get(url, {cancelToken: source.token});
+        const products = response.data.results;
+        //console.log(products);
+        dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          dispatch({ type: GET_PRODUCTS_ERROR });
+        } else {
+          throw error;
+        }
+      }
+    };
+  
+    fetchProducts()
+  
+    return () => {
+      source.cancel();
+    };
   }, [url]);
 
+// fetching a single product
+useEffect(() => {
+  const source = axios.CancelToken.source();
+  
+  const fetchSingleProduct = async (id) => {
+    console.log(id);
+    const single_url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.PRODUCTS_URL}`;
+ 
+    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN })
+    try {
+      const response = await axios.get(single_url, {cancelToken: source.token});
+      const singleProduct = response.data.results;
+      console.log(singleProduct);
+      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
+      } catch (error) {
+      if (axios.isCancel(error)) {
+        dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+      } else {
+        throw error;
+      }
+    }
+  };
 
+  fetchSingleProduct()
+
+  return () => {
+    source.cancel();
+  };
+}, []);
+/*
+  useEffect(() => {
+    fetchProducts(url);
+  }, [])
+  */
 
   return (
-    <ProductsContext.Provider value={{...state, fetchSingleProduct }}>
+    <ProductsContext.Provider value={{...state }}>
       {children}
     </ProductsContext.Provider>
   )

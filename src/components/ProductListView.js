@@ -7,8 +7,11 @@ import Error from '../components/Error'
 import styles from '../styles/ProductListView.module.css'
 
 const ProductListView = () => {
-    const {products, products_loading, products_error} = useProductsContext();
+    const {products} = useProductsContext();
     const {categories, categories_loading, categories_error} = useFilterContext();
+
+    //console.log(products);
+    //console.log(categories);
     // setting up filter logic
     const [filterArray, setFilterArray] = useState([]);
 
@@ -19,13 +22,6 @@ const ProductListView = () => {
     };
 
     
-  if (products_loading) {
-    return <Loading />
-  }
-
-  if (products_error) {
-    return <Error type='products' />;
-  }
 
   if (categories_loading) {
     return <Loading />

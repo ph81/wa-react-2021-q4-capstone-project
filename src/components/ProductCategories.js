@@ -10,7 +10,7 @@ const ProductCategories = (props) => {
     const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.CATEGORIES_URL}`;
     const [shouldCall, setShouldCall] = useState(false);
     const { data: categories } = useFetchData(url, shouldCall);
-    //const { results } = Object.keys(categories).length ? categories : { results: [] };
+
 
     useEffect(() => {    
         setShouldCall(true); 

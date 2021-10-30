@@ -40,7 +40,7 @@ const Header = () => {
                     <li><a href="/">Home</a></li>
                     <li><a href="/#about">About</a></li>
                     <li><a href="/#collection">New Collection</a></li>
-                    <li><a href="/allproducts">All our products</a></li>
+                    <li><a href="/products">Our products</a></li>
 
             </div>
             <div className={cx(styles["search-icon"]

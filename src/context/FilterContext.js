@@ -28,24 +28,34 @@ export const FilterProvider = ({ children }) => {
   //fetching data
   const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.CATEGORIES_URL}`;
 
-  const fetchFilters = async (url) => {
-  //const fetchFilters = () => {
-    dispatch({ type: GET_CATEGORIES_BEGIN })
-    
-    try {
-      const response = await axios.get(url);
-      const categories = response.data;
-      //const categories = dataFilter.results;
-      dispatch({ type: GET_CATEGORIES_SUCCESS, payload: categories })
-    } catch (error) {
-      dispatch({ type: GET_CATEGORIES_ERROR });
-    }
-  }
+// fetching products
+useEffect(() => {
+  const source = axios.CancelToken.source();
 
- 
-  useEffect(() => {
-    fetchFilters(url);
-  }, [url])
+  const fetchCategories = async () => {
+    dispatch({ type: GET_CATEGORIES_BEGIN })
+    try {
+      const response = await axios.get(url, {cancelToken: source.token});
+      //console.log(response);
+      const categories = response.data.results;
+      //console.log(categories);
+      dispatch({ type: GET_CATEGORIES_SUCCESS, payload: categories });
+    } catch (error) {
+      if (axios.isCancel(error)) {
+        dispatch({ type: GET_CATEGORIES_ERROR });
+      } else {
+        throw error;
+      }
+    }
+  };
+
+  fetchCategories()
+
+  return () => {
+    source.cancel();
+  };
+}, [url]);
+
 
   return (
     <FilterContext.Provider value={{ ...state }}>
