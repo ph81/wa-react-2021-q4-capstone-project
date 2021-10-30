@@ -64,9 +64,9 @@ useEffect(() => {
   const source = axios.CancelToken.source();
   
   const fetchSingleProduct = async (id) => {
-    console.log(id);
-    const single_url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.PRODUCTS_URL}`;
- 
+  
+    const single_url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22${id}%22%29+%5D%5D`;
+    console.log(single_url);
     dispatch({ type: GET_SINGLE_PRODUCT_BEGIN })
     try {
       const response = await axios.get(single_url, {cancelToken: source.token});

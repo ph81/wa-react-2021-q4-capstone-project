@@ -8,6 +8,7 @@ import ProductView from '../components/ProductView';
 
 const SingleProduct = () => {
 
+
     return (
         <>
         <Header />

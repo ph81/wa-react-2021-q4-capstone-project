@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 //import { useFilterContext } from '../context/FilterContext';
 import { useProductsContext } from '../context/ProductContext';
-import { Link } from 'react-router-dom';
+
 import Loading from './Loading';
 import Error from './Error'
 import styles from '../styles/SearchProducts.module.css';

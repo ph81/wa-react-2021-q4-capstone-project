@@ -8,7 +8,7 @@ import styles from '../styles/ProductView.module.css'
 
 const ProductView = () => {
     const { id } = useParams();
-    console.log(id);
+    //console.log(id);
     const history = useHistory();
     const { single_product_loading: loading, 
             single_product_error: error, 
@@ -18,11 +18,11 @@ const ProductView = () => {
     //console.log(product);
 
     useEffect(() => {
-      console.log(id);
+      
         fetchSingleProduct(id);
         
         // eslint-disable-next-line
-    }, [id]);
+    }, []);
 
     useEffect(() => {
         if (error) {
@@ -41,11 +41,11 @@ const ProductView = () => {
     return <Error type='single-product' />;
   }
 
-  console.log(product);
+  //console.log(product);
 
   return (
         <div className={styles["product__container"]}>
-          <h4>{product.data.name}</h4>
+          <h4>{product.name}</h4>
         </div>
   )
 

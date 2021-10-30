@@ -24,7 +24,7 @@ const ProductsPage =()  => {
     <div className={styles.container}>
       <main> 
       <PageWrapper product />
-        <ProductListView  />
+        <ProductListView product  />
       </main>
       <Footer />
     </div>
