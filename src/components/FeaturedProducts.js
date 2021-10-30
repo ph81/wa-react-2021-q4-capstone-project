@@ -35,7 +35,7 @@ const FeaturedProducts = () => {
                         )
                     })}
                 </div>
-        <div className={styles["view__products"]}><a href="/allproducts"><span>View all our products</span></a></div>
+        <div className={styles["view__products"]}><a href="/products"><span>View all our products</span></a></div>
         </section>
         
     )

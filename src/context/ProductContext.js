@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { createContext, useContext, useEffect, useReducer } from 'react'
 import reducer from '../reducers/productReducer'
 import { WZL_API } from '../utils/constants'
-import data from '../mocks/es-mx/products.json'
+//import data from '../mocks/es-mx/products.json'
 import {
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
@@ -70,7 +70,7 @@ export const ProductsProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProducts(url);
-  }, [url])
+  }, [url]);
 
 
 

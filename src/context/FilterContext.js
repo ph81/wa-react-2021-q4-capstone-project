@@ -2,8 +2,8 @@ import React, { createContext, useEffect, useContext, useReducer } from 'react';
 import axios from 'axios'
 import reducer from '../reducers/filterReducer';
 import { WZL_API } from '../utils/constants';
-import dataFilter from '../mocks/es-mx/product-categories.json';
-import { useProductsContext } from './ProductContext';
+//import dataFilter from '../mocks/es-mx/product-categories.json';
+//import { useProductsContext } from './ProductContext';
 import {
   GET_CATEGORIES_BEGIN,
   GET_CATEGORIES_SUCCESS,
@@ -21,7 +21,7 @@ export const FilterContext = createContext();
 
 export const FilterProvider = ({ children }) => {
 
-  const { products } = useProductsContext();
+  //const { products } = useProductsContext();
   //console.log('filter context');
   const [state, dispatch] = useReducer(reducer, initialState);
 
