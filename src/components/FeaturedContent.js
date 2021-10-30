@@ -1,5 +1,7 @@
-import React from 'react';
-import dataSlider from '../mocks/en-us/featured-banners.json';
+import React, {useState, useEffect} from 'react';
+import useFetchData from '../utils/hooks/useFetchData';
+import { WZL_API } from '../utils/constants';
+//import { useFeaturedBanners } from '../utils/hooks/useFeaturedBanners'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css'
@@ -15,21 +17,37 @@ SwiperCore.use([Navigation]);
 
 const FeaturedContent = () => {
 
-    const featuredBanners = dataSlider.results;
+    //const featuredBanners = dataSlider.results;
+    //fetching data
+    const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.BANNERS_URL}`;
+    const [shouldCall, setShouldCall] = useState(false);
+    const { data: banners, isLoading } = useFetchData(url, shouldCall);
 
+    
+    useEffect(() => {    
+      setShouldCall(true); 
+  }, []);
+
+    
 
     return (
-        <Swiper spaceBetween={50} slidesPerView={1} loop={true} centeredSlides>
-
-        {featuredBanners.map(banner => 
-            <SwiperSlide key={banner.id} className={styles["swiper-slide"]}>
-        
-            <img src={banner.data.main_image.url} alt={banner.data.title} />
-           
-            </SwiperSlide>
-        )}
-            
-        </Swiper>
+        <>
+        {!isLoading ? (
+           <Swiper spaceBetween={50} slidesPerView={1} loop={true} centeredSlides>
+           {banners &&
+             banners.results.map((banner, idx) => {
+               return (
+                 <SwiperSlide key={banner.id} className={styles["swiper-slide"]}>
+                 <img src={banner.data.main_image.url} alt={banner.data.title} /> 
+                 </SwiperSlide> 
+               )
+             })}
+           </Swiper>
+         ) : 
+             <h2>Loading...</h2>
+         }
+       
+      </>
     )
     
 }

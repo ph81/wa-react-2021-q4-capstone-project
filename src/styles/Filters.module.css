@@ -1,0 +1,52 @@
+
+/* Filtering styling */
+
+
+.filter__container {
+    display: flex;
+    flex-direction: column;
+    width: 18vw;
+    max-width: 18vw;
+    margin-top: 3rem;
+    text-align: left;
+}
+    
+    .filter__container h4 {
+      width: 100%;
+    }
+    
+    .filter__category {
+    padding: 10px 0;
+    }
+    
+    
+    .filter__item {
+    text-align: left;
+    font-size: 0.9em;
+    }
+    
+    
+    
+    @media all and (max-width: 768px) {
+    .filter__container {
+        display: flex;
+        width: 80vw;
+        max-width: 80vw;
+        margin-top: 0;
+     }
+    
+     .filter__container h4 {
+       width: 100%;
+     }
+    
+     .filter__category {
+       display: flex;
+       flex-flow: wrap;
+       padding: 0;
+     }
+    
+     .filter__item {
+       font-size: 0.7rem;
+     }
+    
+    }

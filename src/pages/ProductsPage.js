@@ -1,12 +1,11 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ProductList from '../components/ProductList'
-//import Loading from '../components/Loading';
 import styles from '../styles/globals.css';
 import PageWrapper from '../components/PageWrapper';
+import ProductListView from '../components/ProductListView';
 
-const AllProducts =()  => {
+const ProductsPage =()  => {
 
   //setting up loader
 
@@ -16,21 +15,22 @@ const AllProducts =()  => {
   //    setIsLoading(false);
   //  }, 2000);
   //});
+  
 
 
   return (
     <>
     <Header />
     <div className={styles.container}>
-      <main>
-         <PageWrapper /> 
-         <ProductList /> 
+      <main> 
+      <PageWrapper product />
+        <ProductListView  />
       </main>
       <Footer />
     </div>
     </>
      
-  );
+  )
 }
 
-export default AllProducts;
+export default ProductsPage;
