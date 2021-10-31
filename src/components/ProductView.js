@@ -3,7 +3,7 @@ import { useProductsContext } from '../context/ProductContext';
 import { useParams, useHistory } from 'react-router-dom';
 import Loading from '../components/Loading';
 import Error from '../components/Error'
-//import { WZL_API } from '../utils/constants';
+import { WZL_API } from '../utils/constants';
 import styles from '../styles/ProductView.module.css'
 
 const ProductView = () => {
@@ -12,14 +12,14 @@ const ProductView = () => {
     const history = useHistory();
     const { single_product_loading: loading, 
             single_product_error: error, 
-            single_product: product, 
-            fetchSingleProduct } = useProductsContext();
-    //const url = WZL_API.SINGLEPRODUCT_URL;
-    //console.log(product);
+            single_product: product,
+            fetchSingleProduct} = useProductsContext();
+    const single_url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22${id}%22%29+%5D%5D`;
+    //console.log(single_url);
+
 
     useEffect(() => {
-      
-        fetchSingleProduct(id);
+        fetchSingleProduct(single_url);
         
         // eslint-disable-next-line
     }, []);
