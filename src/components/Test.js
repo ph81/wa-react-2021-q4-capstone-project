@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useProductsContext } from '../context/ProductContext';
 import { useParams, useHistory } from 'react-router-dom';
-import mockdata from '../mocks/es-mx/products.json'
+//import mockdata from '../mocks/es-mx/products.json'
 import Loading from '../components/Loading';
 import Error from '../components/Error'
 import { WZL_API } from '../utils/constants';
@@ -44,7 +44,7 @@ const Test = () => {
     return <Error type='single-product' />;
   }
 
-  const productDef = mockdata.results[0];
+  const productDef = product;
   //console.log(product);
 
   return (
