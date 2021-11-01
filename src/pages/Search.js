@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import styles from '../styles/globals.css';
 import SearchProducts from '../components/SearchProducts';
 
-const Home =()  => {
+const Search =()  => {
   return (
     <>
     <Header />
@@ -21,4 +21,4 @@ const Home =()  => {
   );
 }
 
-export default Home;
+export default Search;

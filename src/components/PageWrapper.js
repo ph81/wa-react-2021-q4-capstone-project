@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import  styles from '../styles/PageWrapper.module.css'
 
-const PageWrapper = ({title, product}) => {
+const PageWrapper = ({name, product}) => {
 
   return (
     
     <div className={styles.wrapper}>
  
         <h3>
-          <Link to="/">Home</Link>{product && <Link to="/productpage">/ Products</Link>}/ {title}
+          <Link to="/">Home</Link>{product && <Link to="/products">/ Products</Link>}/ {name}
         </h3>
 
     </div>

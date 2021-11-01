@@ -8,6 +8,7 @@ const Header = () => {
     // Setting up menu logic
     const [isMenuActive, setMenuActive] = useState(false);
     const [searchActive, setSearchActive] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const ToggleMenu = () => {
       setMenuActive(true); 
@@ -19,6 +20,11 @@ const Header = () => {
 
     const ToggleSearch = () => {
         setSearchActive(true);
+    }
+
+    const handleSearch = (e) => {
+        console.log(e.target.value);
+        console.log(searchTerm);
     }
 
 
@@ -54,8 +60,10 @@ const Header = () => {
                             )}>
                 <span><FaTimes onClick={ToggleCancel}  /></span>
             </div>
-            <form action="#" className={cx(searchActive ? styles["form-active"] : "")}>
-                <input type="search" className={styles["search-data"]} placeholder="Search" required />
+            <form action="#" onSubmit={handleSearch}
+                className={cx(searchActive ? styles["form-active"] : "")}>
+                <input type="search" value={searchTerm} className={styles["search-data"]} 
+                placeholder="Search" onChange={e => setSearchTerm(e.target.value)} required />
                 <button type="submit"><FaSearch/></button>
             </form>
 

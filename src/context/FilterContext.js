@@ -2,8 +2,6 @@ import React, { createContext, useEffect, useContext, useReducer } from 'react';
 import axios from 'axios'
 import reducer from '../reducers/filterReducer';
 import { WZL_API } from '../utils/constants';
-//import dataFilter from '../mocks/es-mx/product-categories.json';
-//import { useProductsContext } from './ProductContext';
 import {
   GET_CATEGORIES_BEGIN,
   GET_CATEGORIES_SUCCESS,
@@ -21,14 +19,12 @@ export const FilterContext = createContext();
 
 export const FilterProvider = ({ children }) => {
 
-  //const { products } = useProductsContext();
-  //console.log('filter context');
   const [state, dispatch] = useReducer(reducer, initialState);
 
   //fetching data
   const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.CATEGORIES_URL}`;
 
-// fetching products
+// fetching categories
 useEffect(() => {
   const source = axios.CancelToken.source();
 

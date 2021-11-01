@@ -8,7 +8,7 @@ import { WZL_API } from '../utils/constants';
 import styles from '../styles/ProductView.module.css'
 import { FaShoppingCart } from 'react-icons/fa';
 
-const ProductView = () => {
+const Test = () => {
     const { id } = useParams();
     //console.log(id);
     const history = useHistory();
@@ -22,6 +22,7 @@ const ProductView = () => {
 
     useEffect(() => {
         fetchSingleProduct(single_url);
+       
         //console.log(mockdata.results[0]);
         // eslint-disable-next-line
     }, []);
@@ -43,8 +44,8 @@ const ProductView = () => {
     return <Error type='single-product' />;
   }
 
-  //const productDef = mockdata.results[0];
-  console.log(product);
+  const productDef = mockdata.results[0];
+  //console.log(product);
 
   return (
     <div className = {styles["card-wrapper"]}>
@@ -53,34 +54,52 @@ const ProductView = () => {
         <div className = {styles["product-imgs"]}>
             <div className = {styles["img-display"]}>
                 <div className = {styles["img-showcase"]}>
-                  {product.data.images.forEach(element => {
-                    <img src={element.image.url} alt = "product" className={styles["gallery"]} />
-                  })}
+                    <img src = "02.webp" alt = "product" className={styles["gallery"]} />
+                    <img src = "03.webp" alt = "product" className={styles["gallery"]} />
+                    <img src = "04.webp" alt = "product" className={styles["gallery"]} />
+                    <img src = "05.webp" alt = "product" className={styles["gallery"]} />
                 </div>
             </div>
             <div className={styles["img-select"]}>
-            {product.data.images.forEach(element => {
-               <div className={styles["img-item"]}>
-               <a href = "#f" data-id = "1">
-                 <img src={element.image.url} alt = "product" className={styles["gallery"]} />
-               </a>
-             </div>
-            })}
-          </div>
+                <div className={styles["img-item"]}>
+                  <a href = "#f" data-id = "1">
+                    <img src = "02.webp" alt = "product" className={styles["gallery"]} />
+                  </a>
+                </div>
+                <div className={styles["img-item"]}>
+                  <a href = "#f" data-id = "1">
+                    <img src = "03.webp" alt = "product" className={styles["gallery"]} />
+                  </a>
+                </div>
+                <div className={styles["img-item"]}>
+                  <a href = "#f" data-id = "1">
+                    <img src = "04.webp" alt = "product" className={styles["gallery"]} />
+                  </a>
+                </div>
+                <div className={styles["img-item"]}>
+                  <a href = "#f" data-id = "1">
+                    <img src = "05.webp" alt = "product" className={styles["gallery"]} />
+                  </a>
+                </div>
+              </div>
         </div>
        </div>
        <div className={styles["card-right"]}>
         <div className={styles["product-content"]}>
-            <h2 className ={styles["product-title"]}>{product.data.name}</h2>
+            <h2 className ={styles["product-title"]}>{productDef.data.name}</h2>
             <div className={styles["product-price"]}>
-                <p>Price: <span>${product.data.price}</span></p>
+                <p>Price: <span>$257.00</span></p>
             </div>
             <div className={styles["product-detail"]}>
-                <h3>About this item: </h3>
-                <p>{product.data.short_description}</p>
+                <h2>about this item: </h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
                 <ul>
-                  <li>Category: <span className={styles["product__slug"]}>{product.data.category.slug}</span></li>
-                  <li>SKU: <span>{product.data.sku}</span></li>
+                  <li>Color: <span>Black</span></li>
+                  <li>Available: <span>in stock</span></li>
+                  <li>Category: <span>Shoes</span></li>
+                  <li>Shipping Area: <span>All over the world</span></li>
+                  <li>Shipping Fee: <span>Free</span></li>
                 </ul>
             </div>
             <div className={styles["purchase-info"]}>
@@ -100,4 +119,4 @@ const ProductView = () => {
 
 }
 
-export default ProductView;
+export default Test;

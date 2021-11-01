@@ -1,16 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import useFetchData from '../utils/hooks/useFetchData';
 import { WZL_API } from '../utils/constants';
-//import { useFeaturedBanners } from '../utils/hooks/useFeaturedBanners'
+//import axios from 'axios'
+import mockBanners from '../mocks/en-us/featured-banners.json'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import  styles from '../styles/FeaturedContent.module.css'
 // import Swiper core and required modules
-import SwiperCore, {
-    Navigation
-  } from 'swiper';
+import SwiperCore, {Navigation} from 'swiper';
   
 // install Swiper modules
 SwiperCore.use([Navigation]);
@@ -21,14 +20,18 @@ const FeaturedContent = () => {
     //fetching data
     const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.BANNERS_URL}`;
     const [shouldCall, setShouldCall] = useState(false);
-    const { data: banners, isLoading } = useFetchData(url, shouldCall);
-
+    let { data: banners, isLoading } = useFetchData(url, shouldCall);
+    //const {data: fbans, isLoad} = useFeaturedBanners();
+    //console.log(fbans);
     
     useEffect(() => {    
       setShouldCall(true); 
   }, []);
 
-    
+  //testing puposes
+   if (banners === undefined) {
+     banners = mockBanners;
+   } 
 
     return (
         <>

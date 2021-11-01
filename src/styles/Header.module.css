@@ -152,7 +152,7 @@ nav .search-icon {
 	}
 
 	nav .form-active {
-		top: 95px;
+		top: 65px;
 		opacity: 1;
 		pointer-events: auto;
 	}

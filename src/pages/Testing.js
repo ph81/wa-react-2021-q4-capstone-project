@@ -3,10 +3,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/globals.css';
 import PageWrapper from '../components/PageWrapper';
-import ProductView from '../components/ProductView';
+import Test from '../components/Test'
 
 
 const SingleProduct = () => {
+
 
     return (
         <>
@@ -14,11 +15,12 @@ const SingleProduct = () => {
         <div className={styles.container}>
           <main> 
             <PageWrapper  product />
-                <ProductView product />
+              <Test />
           </main>
           <Footer />
         </div>
         </>
+         
       )
 }
 

@@ -41,18 +41,30 @@
 }
 
 
-
 .product__title {
 	color: #555;
 	width: 90%;
   height: 2rem;
 	margin: 20px auto 0;
+  font-weight: 300;
 }
 
 .product__price {
 	margin-top: 10px;
 	color: #777;
   height: 2rem;
+}
+
+
+.product__slug {
+	margin: 0 auto;
+	color: white;
+  height: 2rem;
+  width: 10rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #777;
+  padding: 10px;
 }
 
 .product__image {

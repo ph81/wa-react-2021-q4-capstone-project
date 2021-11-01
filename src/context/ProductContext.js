@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { createContext, useContext, useEffect, useReducer } from 'react'
 import reducer from '../reducers/productReducer'
 import { WZL_API } from '../utils/constants'
-//import data from '../mocks/es-mx/products.json'
 import {
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
@@ -33,40 +32,70 @@ export const ProductsProvider = ({ children }) => {
  
 
 // fetching products
-  useEffect(() => {
-    const source = axios.CancelToken.source();
-  
-    const fetchProducts = async () => {
-      dispatch({ type: GET_PRODUCTS_BEGIN })
-      try {
-        const response = await axios.get(url, {cancelToken: source.token});
-        const products = response.data.results;
-        //console.log(products);
-        dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          dispatch({ type: GET_PRODUCTS_ERROR });
-        } else {
-          throw error;
-        }
+useEffect(() => {
+  const source = axios.CancelToken.source();
+
+  const fetchProducts = async () => {
+    dispatch({ type: GET_PRODUCTS_BEGIN })
+    try {
+      const response = await axios.get(url, {cancelToken: source.token});
+      const products = response.data.results;
+      //console.log(products);
+      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
+    } catch (error) {
+      if (axios.isCancel(error)) {
+        dispatch({ type: GET_PRODUCTS_ERROR });
+      } else {
+        throw error;
       }
-    };
-  
-    fetchProducts()
-  
-    return () => {
-      source.cancel();
-    };
-  }, [url]);
+    }
+  };
+
+  fetchProducts()
+
+  return () => {
+    source.cancel();
+  };
+}, [url]);
+
+// fetching products
+useEffect(() => {
+  const source = axios.CancelToken.source();
+
+  const fetchProducts = async () => {
+    dispatch({ type: GET_PRODUCTS_BEGIN })
+    try {
+      const response = await axios.get(url, {cancelToken: source.token});
+      const products = response.data.results;
+      //console.log(products);
+      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
+    } catch (error) {
+      if (axios.isCancel(error)) {
+        dispatch({ type: GET_PRODUCTS_ERROR });
+      } else {
+        throw error;
+      }
+    }
+  };
+
+  fetchProducts()
+
+  return () => {
+    source.cancel();
+  };
+}, [url]);
 
 // fetching a single product
 const fetchSingleProduct = async (url) => {
+  console.log('begin');
   dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
 
   try {
     const response = await axios.get(url);
+    console.log(response);
     const singleProduct = response.data.results;
-    //console.log(singleProduct);
+    //const singleProduct = mockdata[0].data.results;
+    console.log(singleProduct);
 
     dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
 
@@ -77,7 +106,7 @@ const fetchSingleProduct = async (url) => {
 /*
   useEffect(() => {
     fetchProducts(url);
-  }, [])
+  }, [url])
   */
 
   return (
