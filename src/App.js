@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useRoutes } from 'hookrouter';
-import routes from './helpers/Navigation'
+//import { useRoutes } from 'hookrouter';
+import Routes from './utils/routes';
+import { ProductsProvider } from './context/ProductContext';
+import { FilterProvider } from './context/FilterContext';
+
 
 const App = () => {
-  const routeResult = useRoutes(routes);
-  return routeResult;
+  return (
+        <ProductsProvider>
+          <FilterProvider>
+            <Routes />
+          </FilterProvider>
+        </ProductsProvider>
+  )
 }
 
 const rootElement = document.getElementById("root");

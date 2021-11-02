@@ -69,7 +69,7 @@ nav form button {
 }
 
 nav form button:hover {
-	background: #e63600;
+	background: #2f4f4f;
 }
 
 nav .menu-icon,
@@ -152,7 +152,7 @@ nav .search-icon {
 	}
 
 	nav .form-active {
-		top: 95px;
+		top: 65px;
 		opacity: 1;
 		pointer-events: auto;
 	}
