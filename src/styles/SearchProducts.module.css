@@ -38,7 +38,7 @@
 
 .product__container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     width: 90%;

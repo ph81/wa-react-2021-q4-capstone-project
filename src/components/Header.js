@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/Header.module.css';
 import { FaBars, FaTimes, FaSearch, FaShoppingCart, FaUserAlt } from 'react-icons/fa';
+import { useHistory } from "react-router-dom";
 import cx from 'classnames';
 
 const Header = () => {
@@ -9,6 +10,7 @@ const Header = () => {
     const [isMenuActive, setMenuActive] = useState(false);
     const [searchActive, setSearchActive] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
+    let history = useHistory();
 
     const ToggleMenu = () => {
       setMenuActive(true); 
@@ -22,9 +24,11 @@ const Header = () => {
         setSearchActive(true);
     }
 
-    const handleSearch = (e) => {
-        console.log(e.target.value);
-        console.log(searchTerm);
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        if (searchTerm !== "") {
+            history.push(`/search?q=${searchTerm}`); 
+        } 
     }
 
 
@@ -60,7 +64,7 @@ const Header = () => {
                             )}>
                 <span><FaTimes onClick={ToggleCancel}  /></span>
             </div>
-            <form action="#" onSubmit={handleSearch}
+            <form action="#" onSubmit={handleSearchSubmit}
                 className={cx(searchActive ? styles["form-active"] : "")}>
                 <input type="search" value={searchTerm} className={styles["search-data"]} 
                 placeholder="Search" onChange={e => setSearchTerm(e.target.value)} required />
