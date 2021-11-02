@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import useFetchData from '../utils/hooks/useFetchData';
 import { WZL_API } from '../utils/constants';
-//import axios from 'axios'
-import mockBanners from '../mocks/en-us/featured-banners.json'
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css'
@@ -15,29 +15,29 @@ import SwiperCore, {Navigation} from 'swiper';
 SwiperCore.use([Navigation]);
 
 const FeaturedContent = () => {
-
-    //const featuredBanners = dataSlider.results;
     //fetching data
     const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.BANNERS_URL}`;
     const [shouldCall, setShouldCall] = useState(false);
-    let { data: banners, isLoading } = useFetchData(url, shouldCall);
-    //const {data: fbans, isLoad} = useFeaturedBanners();
-    //console.log(fbans);
+    const { data: banners, isError, isLoading } = useFetchData(url, shouldCall);
     
     useEffect(() => {    
       setShouldCall(true); 
   }, []);
 
-  //testing puposes
-   if (banners === undefined) {
-     banners = mockBanners;
-   } 
+    if (isLoading) {
+      return <Loading />
+    }
+
+    if (isError) {
+      return <Error />
+    }
+
 
     return (
         <>
         {!isLoading ? (
            <Swiper spaceBetween={50} slidesPerView={1} loop={true} centeredSlides>
-           {banners &&
+           {
              banners.results.map((banner, idx) => {
                return (
                  <SwiperSlide key={banner.id} className={styles["swiper-slide"]}>

@@ -6,7 +6,6 @@ import Error from './Error';
 
 const ProductCategories = () => {
 
-    //const gridCategories = dataCategories.results;
     //fetching data
     //const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.CATEGORIES_URL}`;
     //const [shouldCall, setShouldCall] = useState(false);
