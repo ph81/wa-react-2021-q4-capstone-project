@@ -31,7 +31,7 @@ const FeaturedProducts = () => {
             <h2>New collection</h2>
                <div className={styles["product__container"]}>
                {
-               featuredList.results.map((product, idx) => 
+               featuredList.results.map((product) => 
                     <div className={styles["product__item"]} key={product.id}>
                    
                       <div className={styles["product__image"]}>
