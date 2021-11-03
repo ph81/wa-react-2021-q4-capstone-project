@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFilterContext } from '../context/FilterContext';
 import { useProductsContext } from '../context/ProductContext';
-import { Link } from 'react-router-dom';
+import ProductCard from './ProductCard';
 import Loading from '../components/Loading';
 import Error from '../components/Error'
 import styles from '../styles/ProductListView.module.css'
@@ -60,33 +60,13 @@ const ProductListView = () => {
             ?
               products
               .map(product => 
-                <div className={styles["list__item"]} key={product.id}>
-                  <div className={styles["list__image"]}>
-                    <Link to={`/products/${product.id}`}>
-                      <img src={product.data.mainimage.url} alt={product.data.name}  />
-                    </Link>
-                  </div>
-                  <div className={styles["list__slug"]}>{product.data.category.slug}</div> 
-                  <div className={styles["list__title"]}>{product.data.name}</div>
-                  <div className={styles["list__price"]}>$ {product.data.price}</div>
-                    
-                </div>
+                <ProductCard key={product.id} {...product} />
               )
             :
             products
             .filter(product => product.data.category.id.includes(filterArray))
             .map(product => 
-                <div className={styles["list__item"]} key={product.id}>
-                  <div className={styles["list__image"]}>
-                    <Link to={`/products/${product.id}`}>
-                      <img src={product.data.mainimage.url} alt={product.data.name}  />
-                    </Link>
-                  </div>
-                  <div className={styles["list__slug"]}>{product.data.category.slug}</div> 
-                  <div className={styles["list__title"]}>{product.data.name}</div>
-                  <div className={styles["list__price"]}>$ {product.data.price}</div>
-                    
-                </div>
+                <ProductCard key={product.id} {...product} />
             )
           }
        

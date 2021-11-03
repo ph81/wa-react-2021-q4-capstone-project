@@ -75,8 +75,14 @@
       height: auto;
   }
   
+  
   .list__slug {
-    margin-top: 4px;
+    margin: 0 auto;
+    color: white;
+    height: 2rem;
+    width: 10rem;
     text-transform: uppercase;
-    height: 20px;
+    font-weight: bold;
+    background-color: #777;
+    padding: 10px;
   }

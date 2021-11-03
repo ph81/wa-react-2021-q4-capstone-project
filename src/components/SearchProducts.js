@@ -1,8 +1,9 @@
 import React from 'react';
 import { useProductsContext } from '../context/ProductContext';
 import Error from './Error'
+import ProductCard from './ProductCard';
 import styles from '../styles/SearchProducts.module.css';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Fuse from 'fuse.js';
 
 const SearchProducts = () => {
@@ -11,12 +12,10 @@ const SearchProducts = () => {
   const searchTerm = new URLSearchParams(search).get('q');
   const {products, products_error} = useProductsContext();
   
-  
   if (products_error) {
       return <Error type='products' />;
   }
-    
-  
+     
   const fuse = new Fuse(products, {
     keys: [
       'name',
@@ -38,21 +37,9 @@ const SearchProducts = () => {
               <h3>No products matching your search.</h3>
               :
               productResults.map(product => 
-                <div className={styles["product__item"]} key={product.item.id}>
-                <div className={styles["product__image"]}>
-                  <Link to={`/products/${product.item.id}`}>
-                    <img src={product.item.data.mainimage.url} alt={product.item.data.name}  />
-                  </Link>
-                </div>
-                <div className={styles["product__slug"]}>{product.item.data.category.slug}</div> 
-                <div className={styles["product__title"]}>{product.item.data.name}</div>
-                <div className={styles["product__price"]}>$ {product.item.data.price}</div>
-                  
-              </div>
-    
+                <ProductCard key={product.item.id} {...product.item} />
               )
-            }
-            
+            }    
             </div>
           
            
