@@ -14,6 +14,7 @@ const ProductCard = (product) => {
         <div className={styles["list__slug"]}>{product.data.category.slug}</div> 
         <div className={styles["list__title"]}>{product.data.name}</div>
         <div className={styles["list__price"]}>$ {product.data.price}</div>  
+        <div className={styles["list__cart"]}>Add to cart</div> 
     </div>
     )
 }

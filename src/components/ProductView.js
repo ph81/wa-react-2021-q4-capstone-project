@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 //import { useProductsContext } from '../context/ProductContext';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useFetchData from '../utils/hooks/useFetchData';
 import Loading from '../components/Loading';
 import Error from '../components/Error'
@@ -10,7 +10,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 const ProductView = () => {
     const { id } = useParams();
-    const history = useHistory();
+    //const history = useHistory();
     const single_url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22${id}%22%29+%5D%5D`;
     const [shouldCall, setShouldCall] = useState(false);
     const {data: product, loading, error} = useFetchData(single_url, shouldCall);
@@ -20,15 +20,6 @@ const ProductView = () => {
       setShouldCall(true); 
     }, []);
 
-
-    useEffect(() => {
-        if (error) {
-        setTimeout(() => {
-            history.push('/');
-        }, 4000);
-        }
-        // eslint-disable-next-line
-    }, [error]);
 
   if (loading) {
     return <Loading />
@@ -54,6 +45,7 @@ const ProductView = () => {
           <div className={styles["img-select"]}>
           {product?.results?.[0]?.data?.images.forEach(element => {
              <div className={styles["img-item"]}>
+               <p>{element.image.url}</p>
              <a href = "#f" data-id = "1">
                <img src={element.image.url} alt = "product" className={styles["gallery"]} />
              </a>

@@ -28,7 +28,7 @@ const ProductCategories = () => {
 
     return (
         <section>
-            <h2>Our departments</h2>
+            <h2>Departments</h2>
                <div className={styles["grid__container"]}>
                {categories &&
                categories.results.map((category, idx) => 
