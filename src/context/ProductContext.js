@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { createContext, useContext, useEffect, useReducer } from 'react'
 import reducer from '../reducers/productReducer'
+//import {useFetchData} from '../utils/hooks/useFetchData';
 import { WZL_API } from '../utils/constants'
 import {
   GET_PRODUCTS_BEGIN,

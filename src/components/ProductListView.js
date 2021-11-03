@@ -13,8 +13,9 @@ const ProductListView = () => {
     const [filterArray, setFilterArray] = useState([]);
 
 
+
     const categoryFilter = (id) => {
-      filterArray.includes(id)
+        filterArray.includes(id)
         ? setFilterArray(filterArray.filter(x => x !== id))
         : setFilterArray([...filterArray, id]);
     };
@@ -36,16 +37,21 @@ const ProductListView = () => {
             <h4>Filter by category</h4>
             <div className={styles["filter__category"]}>
               {categories.map(category => 
-              
                   <div className={styles["filter__item"]} key={category.id}>
                     <label>
                         <input type="checkbox"
                         value={category.data.name} onChange={() => categoryFilter(category.id)} />
                         {category.data.name}        
                       </label>
-                  </div>
-                    
+                  </div> 
               )}
+                   <div className={styles["filter__item"]}>
+                    <label>
+                        <input type="checkbox" value={''}
+                         onChange={() => categoryFilter('')} />
+                        Clear all filters        
+                      </label>
+                  </div>
             </div>
           </div>
      
