@@ -5,7 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import Loading from '../components/Loading';
 import Error from '../components/Error'
 import { WZL_API } from '../utils/constants';
-import styles from '../styles/ProductView.module.css'
+import styles from '../styles/ProductDetail.module.css'
 import { FaShoppingCart } from 'react-icons/fa';
 
 const Test = () => {

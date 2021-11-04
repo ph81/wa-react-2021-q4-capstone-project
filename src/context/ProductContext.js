@@ -93,10 +93,10 @@ const fetchSingleProduct = async (url) => {
 
   try {
     const response = await axios.get(url);
-    console.log(response);
+    //console.log(response);
     const singleProduct = response.data.results;
     //const singleProduct = mockdata[0].data.results;
-    console.log(singleProduct);
+    //console.log(singleProduct);
 
     dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
 
