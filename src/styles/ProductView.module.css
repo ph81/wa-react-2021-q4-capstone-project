@@ -144,7 +144,16 @@
 }
 .purchase-info .btn {
   cursor: pointer;
-  color: #fff;
+  margin: 0 auto;
+    color: white;
+    height: 3rem;
+    width: 60%;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    background-color: hsl(22, 28%, 37%);
+    border: 1px solid transparent;
+    border-radius: 0.30rem;
 }
 .purchase-info .btn:first-of-type {
   background: #256eff;

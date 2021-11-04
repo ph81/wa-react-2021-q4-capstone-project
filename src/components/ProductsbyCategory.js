@@ -1,5 +1,4 @@
 import React from 'react';
-//import { useFilterContext } from '../context/FilterContext';
 import { useProductsContext } from '../context/ProductContext';
 import { useParams } from 'react-router-dom';
 //import Loading from '../components/Loading';
@@ -11,8 +10,6 @@ const ProductsbyCategory = () => {
 
   const {slug} = useParams();
   const {products, products_error} = useProductsContext();
-  //const {categories, categories_loading, categories_error} = useFilterContext();
-  //console.log(slug);
 
   if (products_error) {
     return <Error type='products' />;

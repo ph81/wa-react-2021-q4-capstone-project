@@ -6,7 +6,6 @@ import Loading from '../components/Loading';
 import Error from '../components/Error'
 import { WZL_API } from '../utils/constants';
 import styles from '../styles/ProductView.module.css'
-import { FaShoppingCart } from 'react-icons/fa';
 
 const ProductView = () => {
     const { id } = useParams();
@@ -44,12 +43,7 @@ const ProductView = () => {
           </div>
           <div className={styles["img-select"]}>
           {product?.results?.[0]?.data?.images.forEach(element => {
-             <div className={styles["img-item"]}>
-               <p>{element.image.url}</p>
-             <a href = "#f" data-id = "1">
-               <img src={element.image.url} alt = "product" className={styles["gallery"]} />
-             </a>
-           </div>
+            <p>{element}</p>
           })}
         </div>
       </div>
@@ -71,7 +65,7 @@ const ProductView = () => {
           <div className={styles["purchase-info"]}>
               <input type = "number" min = "0" value = "1" />
               <button type = "button" className={styles["btn"]}>
-                Add to Cart <FaShoppingCart/>
+                Add to Cart
               </button>
           </div>
           
