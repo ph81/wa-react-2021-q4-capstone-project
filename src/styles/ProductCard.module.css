@@ -94,21 +94,3 @@
     padding: 10px;
     text-align: center;
   }
-
-  .list__cart {
-    margin: 0 auto;
-    color: white;
-    height: 3rem;
-    width: 90%;
-    font-weight: bold;
-    padding: 10px;
-    text-align: center;
-    background-color: hsl(22, 28%, 37%);
-    border: 1px solid transparent;
-    border-radius: 0.30rem;
-  }
-
-  .list__cart:hover {
-    background-color: #584032;
-    cursor: pointer;
-  }

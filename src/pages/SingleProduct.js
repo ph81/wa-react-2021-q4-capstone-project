@@ -14,7 +14,7 @@ const SingleProduct = () => {
         <div className={styles.container}>
           <main> 
             <PageWrapper product />
-                <ProductDetail product />
+            <ProductDetail product />
           </main>
           <Footer />
         </div>

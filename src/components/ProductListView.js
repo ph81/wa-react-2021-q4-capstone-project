@@ -9,10 +9,9 @@ import styles from '../styles/ProductListView.module.css'
 const ProductListView = () => {
     const {products} = useProductsContext();
     const {categories, categories_loading, categories_error} = useFilterContext();
+   
     // setting up filter logic
     const [filterArray, setFilterArray] = useState([]);
-
-
 
     const categoryFilter = (id) => {
         filterArray.includes(id)
@@ -20,6 +19,7 @@ const ProductListView = () => {
         : setFilterArray([...filterArray, id]);
     };
 
+    
   if (categories_loading) {
     return <Loading />
   }
@@ -27,6 +27,8 @@ const ProductListView = () => {
   if (categories_error) {
     return <Error type='categories' />;
   }
+
+  if (!products) { return null }  // pull off the props from product
 
 
    
