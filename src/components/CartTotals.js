@@ -11,17 +11,17 @@ const CartTotals = () => {
       <section className={styles["cart__totals"]}>
         <article>
           <h5>
-            subtotal: <span>{total_amount}</span>
+            Subtotal: <span>{total_amount}</span>
           </h5>
           <p>
-            shipping fee: <span>{shipping_fee}</span>
+            Shipping fee: <span>{shipping_fee}</span>
           </p>
           <hr />
           <h4>
-            order total: <span>{(total_amount + shipping_fee)}</span>
+            Order total: <span>{(total_amount + shipping_fee)}</span>
           </h4>
         </article>
-        <Link to='/checkout' className={styles["cart__checkout"]}>proceed to checkout</Link>
+        <Link to='/checkout' className={styles["cart__checkout"]}>Proceed to checkout</Link>
       </section>
    )
    

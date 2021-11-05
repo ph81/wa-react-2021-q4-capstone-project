@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styles from '../styles/Header.module.css';
-import { FiMenu, FiX, FiSearch, FiShoppingCart, FiUser } from 'react-icons/fi';
+import { FiMenu, FiX, FiSearch, FiUser } from 'react-icons/fi';
+import CartBtn from './CartBtn';
 import { useHistory } from "react-router-dom";
+//import { useCartContext } from '../context/CartContext';
 import cx from 'classnames';
+
 
 const Header = () => {
 
@@ -69,7 +72,7 @@ const Header = () => {
                 <span><FiUser/> </span>
             </div>
             <div className={isMenuActive ? styles["hide-icon"] : styles["fixed-icon"]}>
-                <span><FiShoppingCart/></span>
+                <span><CartBtn/></span>
             </div>
         </nav>
         </>
