@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: REMOVE_CART_ITEM, payload: id });
   };
 
-  // toogle ammount
+  // toggle ammount
   const toggleAmount = (id, value) => {
     dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, value } });
   };
@@ -54,7 +54,7 @@ export const CartProvider = ({ children }) => {
 
   return <CartContext.Provider value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}>{children}</CartContext.Provider>;
 };
-// make sure use
+
 export const useCartContext = () => {
   return useContext(CartContext);
 };

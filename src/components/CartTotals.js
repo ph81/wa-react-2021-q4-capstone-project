@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCartContext } from '../context/CartContext';
+import PropTypes from 'prop-types';
 //import { formatPrice } from '../utils/helpers';
 import { Link } from 'react-router-dom';
 import styles from '../styles/CartTotals.module.css';
@@ -28,3 +29,8 @@ const CartTotals = () => {
 }
 
 export default CartTotals;
+
+CartTotals.propTypes = {
+  total_amount: PropTypes.number,
+  shipping_fee: PropTypes.number
+}

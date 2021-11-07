@@ -1,12 +1,9 @@
 import React from 'react';
-//import { useCartContext } from '../context/CartContext';
 import CartContent from './CartContent';
 //import { Link } from 'react-router-dom';
 import styles from '../styles/CheckoutForm.module.css';
 
 const CheckoutForm = () => {
-   //const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
-   //const history = useHistory();
 
    return (
       <section>

@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import AddToCart from "./AddToCart";
 import styles from '../styles/ProductCard.module.css';
 
 const ProductCard = (product) => {
+
 
     return (
       <div className={styles["list__item"]} key={product.id}>
@@ -21,3 +23,7 @@ const ProductCard = (product) => {
 }
 
 export default ProductCard;
+
+ProductCard.propTypes = {
+  product: PropTypes.object
+}
