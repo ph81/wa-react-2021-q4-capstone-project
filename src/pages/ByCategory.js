@@ -12,7 +12,7 @@ const ByCategory = () => {
         <Header />
         <div className={styles.container}>
         <main> 
-        <PageWrapper product />
+        <PageWrapper product name="Products by Category" />
             <ProductsbyCategory product  />
         </main>
         <Footer />

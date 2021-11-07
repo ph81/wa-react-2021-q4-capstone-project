@@ -17,8 +17,8 @@ const CartContent = () => {
         return <CartItem key={item.id} {...item} />;
       })}
       <hr />
-      <div className={styles["cart_container"]}>
-        <Link to='/products' className={styles["cart-buttons"]}>
+      <div className={styles["cart__container"]}>
+        <Link to='/products' className={styles["cart__buttons"]}>
           continue shopping
         </Link>
         <button type='button' className={styles["clear__btn"]} onClick={clearCart}>

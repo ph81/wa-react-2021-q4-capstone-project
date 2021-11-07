@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import CartContent from '../components/CartContent';
+import CheckoutForm from '../components/CheckoutForm';
 import PageWrapper from '../components/PageWrapper';
 
 
@@ -16,10 +16,10 @@ const Checkout = () => {
     <Header />
     <div className={styles.container}>
       <main> 
-         <PageWrapper />
+         <PageWrapper name="Checkout" />
          {cart.length < 1 ?
             (
-            <div>
+            <div className={styles.container}>
                <h2>Your cart is empty</h2>
                <Link to='/products'>
                  Go Shopping
@@ -28,7 +28,7 @@ const Checkout = () => {
             )
             : ""
          }
-         <CartContent />
+         <CheckoutForm />
 
       </main>
       <Footer />

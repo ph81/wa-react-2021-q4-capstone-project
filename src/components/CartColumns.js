@@ -5,10 +5,10 @@ const CartColumns = () => {
   return (
     <div className={styles["cart__columns"]}>
       <div className={styles["cart__content"]}>
-        <h5>Item</h5>
-        <h5>Price</h5>
-        <h5>Quantity</h5>
-        <h5>Subtotal</h5>
+        <h4>Item</h4>
+        <h4>Price</h4>
+        <h4>Quantity</h4>
+        <h4>Subtotal</h4>
         <span></span>
       </div>
       <hr />

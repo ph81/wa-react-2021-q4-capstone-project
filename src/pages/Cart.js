@@ -15,15 +15,15 @@ const Cart = () => {
     <Header />
     <div className={styles.container}>
       <main> 
-         <PageWrapper />
+         <PageWrapper name="Cart" />
          {cart.length < 1 ?
             (
-            <div>
+            <section>
                <h2>Your cart is empty</h2>
                <Link to='/products'>
-                 Go Shopping
+                 Go Shopping!
                </Link>
-            </div>  
+            </section>  
             )
             :  <CartContent />
          }

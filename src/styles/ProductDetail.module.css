@@ -98,11 +98,13 @@
 }
 
 .product-detail h2 {
+  text-align: center;
   text-transform: capitalize;
   color: #12263a;
   padding-bottom: 0.6rem;
 }
 .product-detail p {
+  display: flex;
   font-size: 1.5rem;
   padding: 0.3rem;
   opacity: 0.8;
