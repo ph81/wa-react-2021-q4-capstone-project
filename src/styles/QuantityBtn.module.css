@@ -1,9 +1,17 @@
 .quantity {
   display: grid;
   width: 5rem;
-  justify-items: center;
+  justify-items: flex-end;
   grid-template-columns: repeat(3, 1fr);
-  align-items: center;
+  align-items: flex-end;
+  margin-top: 1.2rem;
+  margin-left: auto;
+}
+
+@media all and (max-width: 768px) {
+  .quantity {
+    width: 2rem;
+  }
 }
 
 .quantity h2 {

@@ -19,16 +19,16 @@ const CartItem = ({ id, image, name, price, amount }) => {
   return (
      <section>
        <article className={styles["cart__item"]}>
-      <div className={styles.title}>
+      <div className={styles["title"]}>
         <img src={image} alt={name} />
         <div>
           <Link to={`/products/${id}`}>
-          <h4 className={styles.name}>{name}</h4>
+          <h4>{name}</h4>
           </Link>
         </div>
       </div>
-      <h4 className={styles.price}>${price}</h4>
-      <h4 className={styles["price__small"]}>${price}</h4>
+      <h4 className={styles["price"]}>${price}</h4>
+    
       <h4>
       <QuantityBtn amount={amount} increase={increase} decrease={decrease} 
       className={styles["quantity__item"]} />
