@@ -36,12 +36,6 @@ const ProductDetail = () => {
     transformImage.current.style = `translateX(${imageWidth}px)`;
   }
 */
-/*
-  const getQuantity = (e) => {
-    e.preventDefault();
-    setQuantity(e.target.value);
-  }
-*/
  
   return (
     
@@ -53,7 +47,8 @@ const ProductDetail = () => {
               <div className={styles["img-showcase"]}  
               ref={transformImage}>
               {product[0]?.data?.images.map(({ image, idx }) => (
-              <img key={idx} src={image.url} alt="product" className={styles["gallery"]} />
+              <img key={idx} src={image.url} alt="product" 
+              className={styles["gallery"]} />
               ))}
               </div>
           </div>
@@ -61,7 +56,8 @@ const ProductDetail = () => {
           {product[0]?.data?.images.map(({ image, idx }) => (
             <div className={styles["img-item"]} key={idx}>
             <a href={image.url} data-id={idx} ref={selectedImage}>
-              <img key={idx} src={image.url} alt={product[0]?.data?.name} className={styles["gallery"]} />
+              <img key={idx} src={image.url} alt={product[0]?.data?.name} 
+              className={styles["gallery"]} />
             </a>
           </div>
           ))}

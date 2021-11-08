@@ -2,12 +2,14 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import {useCartContext} from '../context/CartContext';
 import QuantityBtn from './QuantityBtn';
+
 import styles from '../styles/AddToCart.module.css';
 
 const AddToCart = ({ product, showQuantity }) => {
   const { addToCart } = useCartContext();
   const { id, stock } = product;
   const [amount, setAmount] = useState(1);
+  
 
   const increase = () => {
     setAmount((oldAmount) => {
@@ -31,9 +33,10 @@ const AddToCart = ({ product, showQuantity }) => {
     
     return (
         <>
+       
+        <div className={styles["add__container"]}>
         {showQuantity ? <QuantityBtn amount={amount} increase={increase} decrease={decrease} /> : ""} 
-        <div className={styles["list__cart"]}>
-        <Link to='/cart' className='btn' 
+        <Link to='/cart' className={styles["list__cart"]} 
             onClick={() => addToCart(id, amount, product)}>
           Add to cart
         </Link>

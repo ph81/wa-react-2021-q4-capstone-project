@@ -85,10 +85,9 @@ nav .menu-icon,
 }
 
 nav .fixed-icon {
-    width: 40px;
+   width: 40px;
 	text-align: center;
-	padding-left: 10px;
-	font-size: 20px;
+	font-size: 22px;
 	color: #1e232b;
 	cursor: pointer;
 }

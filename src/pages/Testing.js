@@ -6,7 +6,7 @@ import PageWrapper from '../components/PageWrapper';
 import Test from '../components/Test'
 
 
-const SingleProduct = () => {
+const Testing = () => {
 
 
     return (
@@ -24,4 +24,4 @@ const SingleProduct = () => {
       )
 }
 
-export default SingleProduct;
+export default Testing;

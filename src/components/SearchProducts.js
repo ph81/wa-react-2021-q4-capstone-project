@@ -25,8 +25,8 @@ const SearchProducts = () => {
     includeScore: true
   })
     //With fuse.js, a lower score means it's closer to an exact match
-    const results = fuse.search(searchTerm);
-    const productResults = results.filter(result => result.score < 0.5);
+  const results = fuse.search(searchTerm);
+  const productResults = results.filter(result => result.score < 0.5);
 
 
     return (
@@ -41,9 +41,6 @@ const SearchProducts = () => {
               )
             }    
             </div>
-          
-           
-       
         </section>
     )
 }
