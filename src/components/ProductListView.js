@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useFilterContext } from '../context/FilterContext';
 import { useProductsContext } from '../context/ProductContext';
+import { usePagination } from '../utils/hooks/usePagination';
 import ProductCard from './ProductCard';
 import Loading from '../components/Loading';
 import Error from '../components/Error'
@@ -9,6 +10,19 @@ import styles from '../styles/ProductListView.module.css'
 const ProductListView = () => {
     const {products} = useProductsContext();
     const {categories, categories_loading, categories_error} = useFilterContext();
+    //pagination
+    const {
+      firstContentIndex,
+      lastContentIndex,
+      nextPage,
+      prevPage,
+      page,
+      setPage,
+      totalPages,
+    } = usePagination({
+      contentPerPage: 8,
+      count: products.length,
+    });
    
     // setting up filter logic
     const [filterArray, setFilterArray] = useState([]);
@@ -30,8 +44,6 @@ const ProductListView = () => {
 
   if (!products) { return null }  // pull off the props from product
 
-
-   
       return (
         <section id="filterbycategory">
           
@@ -61,25 +73,43 @@ const ProductListView = () => {
           {filterArray.length === 0 
             ?
               products
+              .slice(firstContentIndex, lastContentIndex)
               .map(product => 
                 <ProductCard key={product.id} {...product} />
               )
             :
             products
             .filter(product => product.data.category.id.includes(filterArray))
+            .slice(firstContentIndex, lastContentIndex)
             .map(product => 
                 <ProductCard key={product.id} {...product} />
             )
           }
        
-    
-            <div className={styles.pagination}>
-                <a href="/">&laquo;</a>
-                <a className={styles["active"]} href="/">1</a>
-                <a href="/">2</a>
-                <a href="/">3</a>
-                <a href="/">&raquo;</a>
-            </div>
+       <div className={"pagination"}>
+            <button
+              onClick={prevPage}
+              className={`page ${page === 1 && "disabled"}`}
+            >
+              &larr;
+            </button>
+            {[...Array(totalPages).keys()].map((el) => (
+              <button
+                onClick={() => setPage(el + 1)}
+                key={el}
+                className={`page ${page === el + 1 ? "active" : ""}`}
+              >
+                {el + 1}
+              </button>
+            ))}
+            <button
+              onClick={nextPage}
+              className={`page ${page === totalPages && "disabled"}`}
+            >
+              &rarr;
+            </button>
+          </div>
+
        </div>
       </section>  
       )
