@@ -15,7 +15,7 @@ const filterReducer = (state, action) => {
   }
 
   if (action.type === GET_CATEGORIES_ERROR) {
-    return {...state, products_loading: false, products_error: true}
+    return {...state, categories_loading: false, categories_error: true}
   }
 
 
