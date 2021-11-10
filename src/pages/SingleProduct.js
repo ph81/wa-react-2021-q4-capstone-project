@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/globals.css';
 import PageWrapper from '../components/PageWrapper';
-import ProductView from '../components/ProductView';
+import ProductDetail from '../components/ProductDetail';
 
 
 const SingleProduct = () => {
@@ -13,8 +13,8 @@ const SingleProduct = () => {
         <Header />
         <div className={styles.container}>
           <main> 
-            <PageWrapper  product />
-                <ProductView product />
+            <PageWrapper product />
+            <ProductDetail product />
           </main>
           <Footer />
         </div>

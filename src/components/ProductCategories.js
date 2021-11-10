@@ -4,6 +4,7 @@ import  styles from '../styles/ProductCategories.module.css'
 import Loading from './Loading';
 import Error from './Error';
 import useFetchData from '../utils/hooks/useFetchData';
+import { Link } from 'react-router-dom';
 
 const ProductCategories = () => {
 
@@ -27,12 +28,14 @@ const ProductCategories = () => {
 
     return (
         <section>
-            <h2>Our departments</h2>
+            <h2>Departments</h2>
                <div className={styles["grid__container"]}>
                {categories &&
                categories.results.map((category, idx) => 
                     <div className={styles["grid__item"]} key={category.id}>
+                        <Link to={`/category/${category.data.name}`}>
                         <img src={category.data.main_image.url} alt={category.data.name} />
+                        </Link>
                          <p>{category.data.name}</p>
                     </div>    
                 )}

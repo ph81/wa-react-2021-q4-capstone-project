@@ -3,25 +3,22 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/globals.css';
 import PageWrapper from '../components/PageWrapper';
-import Test from '../components/Test'
+import ProductsbyCategory from '../components/ProductsbyCategory';
 
-
-const Testing = () => {
-
+const ByCategory = () => {
 
     return (
         <>
         <Header />
         <div className={styles.container}>
-          <main> 
-            <PageWrapper  product />
-              <Test />
-          </main>
-          <Footer />
+        <main> 
+        <PageWrapper product name="Products by Category" />
+            <ProductsbyCategory product  />
+        </main>
+        <Footer />
         </div>
         </>
-         
-      )
+    )
 }
 
-export default Testing;
+export default ByCategory;

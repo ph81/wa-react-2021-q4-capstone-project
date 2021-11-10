@@ -1,9 +1,10 @@
 footer {
-    max-width: 90vw;
+    background-color: var(--clr-primary-5);
+    color: var(--clr-white);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin-top: auto;
     border-top: 1px solid gray;
     align-items: center;
   }
