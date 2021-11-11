@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import { useCartContext } from "../context/CartContext";
 import QuantityBtn from "./QuantityBtn";
 import styles from "../styles/AddToCart.module.css";
@@ -56,7 +55,3 @@ const AddToCart = ({ product, showQuantity }) => {
 
 export default AddToCart;
 
-AddToCart.propTypes = {
-  product: PropTypes.array,
-  showQuantity: PropTypes.bool,
-};
