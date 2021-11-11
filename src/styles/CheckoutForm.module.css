@@ -1,45 +1,45 @@
 .user__info {
-   text-align: left;
+  text-align: left;
 }
 
 .user__info form {
-   max-width: 50rem;
-   padding: 1.5rem 2rem;
-   background-color: white;
-   border-radius: 8px;
-   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  max-width: 50rem;
+  padding: 1.5rem 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .user__info label {
   text-align: left;
   margin-bottom: 0.9rem;
- 
 }
 
-.user__info input, textarea {
-   display: block;
-   margin-bottom: 1.5rem;
+.user__info input,
+textarea {
+  display: block;
+  margin-bottom: 1.5rem;
 }
 
 .help__text {
-   display: block;
-   margin-top: 0.5rem;
-   font-size: 10px;
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 10px;
 }
 
 .user__info button {
-   background: transparent;
-   border-color: transparent;
-   text-transform: capitalize;
-   padding: 0.25rem 0.5rem;
-   background: var(--clr-primary-5);
-   color: var(--clr-white);
-   border-radius: var(--radius);
-   letter-spacing: var(--spacing);
-   font-size: 1.2rem;
-   cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  text-transform: capitalize;
+  padding: 0.25rem 0.5rem;
+  background: var(--clr-primary-5);
+  color: var(--clr-white);
+  border-radius: var(--radius);
+  letter-spacing: var(--spacing);
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .user__info button:hover {
-   background: #2f4f4f;
+  background: #2f4f4f;
 }

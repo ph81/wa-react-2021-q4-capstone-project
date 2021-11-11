@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { WZL_API } from '../constants';
+import { useState, useEffect } from "react";
+import { WZL_API } from "../constants";
 
 const INITIAL_API_METADATA = { ref: null, isLoading: true };
 

@@ -1,24 +1,21 @@
-import { 
+import {
   GET_CATEGORIES_BEGIN,
   GET_CATEGORIES_SUCCESS,
-  GET_CATEGORIES_ERROR
-} from '../utils/actions';
+  GET_CATEGORIES_ERROR,
+} from "../utils/actions";
 
 const filterReducer = (state, action) => {
-
   if (action.type === GET_CATEGORIES_BEGIN) {
-    return {...state, categories_loading: true}
+    return { ...state, categories_loading: true };
   }
 
   if (action.type === GET_CATEGORIES_SUCCESS) {
-    return {...state, categories_loading: false, categories: action.payload}
+    return { ...state, categories_loading: false, categories: action.payload };
   }
 
   if (action.type === GET_CATEGORIES_ERROR) {
-    return {...state, categories_loading: false, categories_error: true}
+    return { ...state, categories_loading: false, categories_error: true };
   }
-
-
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };

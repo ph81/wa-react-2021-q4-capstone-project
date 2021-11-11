@@ -47,8 +47,8 @@
 }
 
 .card-right {
- width: 50%;
- height: 100vh;
+  width: 50%;
+  height: 100vh;
 }
 
 .product-content {
@@ -79,9 +79,8 @@
   opacity: 0.9;
 }
 
-
 .product__slug {
-	color: white;
+  color: white;
   text-transform: uppercase;
   font-weight: bold;
   background-color: #777;
@@ -127,7 +126,6 @@
   font-weight: 400;
 }
 
-
 .purchase-info {
   margin: 1.5rem 0;
 }
@@ -147,15 +145,15 @@
 .purchase-info .btn {
   cursor: pointer;
   margin: 0 auto;
-    color: white;
-    height: 3rem;
-    width: 60%;
-    font-weight: bold;
-    padding: 10px;
-    text-align: center;
-    background-color: hsl(22, 28%, 37%);
-    border: 1px solid transparent;
-    border-radius: 0.30rem;
+  color: white;
+  height: 3rem;
+  width: 60%;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  background-color: hsl(22, 28%, 37%);
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
 }
 .purchase-info .btn:first-of-type {
   background: #256eff;
@@ -190,33 +188,30 @@
   color: #fff;
 }
 
-
 @media screen and (min-width: 992px) {
   .card-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .product-imgs {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .product-content {
-      padding-top: 0;
+    padding-top: 0;
   }
 }
 
 @media screen and (max-width: 768px) {
- 
   .card {
-      flex-direction: column;
+    flex-direction: column;
   }
   .card-left {
-      width: 100%;
+    width: 100%;
   }
   .card-right {
-      width: 100%;
+    width: 100%;
   }
-
 }

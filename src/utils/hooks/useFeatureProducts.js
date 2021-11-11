@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { WZL_API } from '../constants';
-import { useLatestAPI } from './useLatestAPI';
+import { useState, useEffect } from "react";
+import { WZL_API } from "../constants";
+import { useLatestAPI } from "./useLatestAPI";
 
 export function useFeaturedProducts() {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
@@ -20,7 +20,9 @@ export function useFeaturedProducts() {
       try {
         setFeaturedProducts({ data: {}, isLoading: true });
         const response = await fetch(
-          `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.FEATURED_URL}&q=${encodeURIComponent(
+          `${WZL_API.API_BASE_URL}/documents/search?ref=${
+            WZL_API.FEATURED_URL
+          }&q=${encodeURIComponent(
             '[[at(document.tags, "Featured")]]'
           )}&lang=en-us&pageSize=16`,
           {

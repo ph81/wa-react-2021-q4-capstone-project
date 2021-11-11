@@ -1,15 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {useCartContext} from '../context/CartContext';
-import QuantityBtn from './QuantityBtn';
-
-import styles from '../styles/AddToCart.module.css';
+import PropTypes from "prop-types";
+import { useCartContext } from "../context/CartContext";
+import QuantityBtn from "./QuantityBtn";
+import styles from "../styles/AddToCart.module.css";
 
 const AddToCart = ({ product, showQuantity }) => {
   const { addToCart } = useCartContext();
   const { id, stock } = product;
   const [amount, setAmount] = useState(1);
-  
 
   const increase = () => {
     setAmount((oldAmount) => {
@@ -30,19 +29,34 @@ const AddToCart = ({ product, showQuantity }) => {
       return tempAmount;
     });
   };
-    
-    return (
-        <>
-       
-        <div className={styles["add__container"]}>
-        {showQuantity ? <QuantityBtn amount={amount} increase={increase} decrease={decrease} /> : ""} 
-        <Link to='/cart' className={styles["list__cart"]} 
-            onClick={() => addToCart(id, amount, product)}>
+
+  return (
+    <>
+      <div className={styles["add__container"]}>
+        {showQuantity ? (
+          <QuantityBtn
+            amount={amount}
+            increase={increase}
+            decrease={decrease}
+          />
+        ) : (
+          ""
+        )}
+        <Link
+          to="/cart"
+          className={styles["list__cart"]}
+          onClick={() => addToCart(id, amount, product)}
+        >
           Add to cart
         </Link>
-        </div> 
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
 export default AddToCart;
+
+AddToCart.propTypes = {
+  product: PropTypes.array,
+  showQuantity: PropTypes.bool,
+};

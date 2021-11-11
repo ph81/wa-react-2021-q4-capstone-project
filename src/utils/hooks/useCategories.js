@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { WZL_API } from '../constants';
-import { useLatestAPI } from './useLatestAPI';
+import { useState, useEffect } from "react";
+import { WZL_API } from "../constants";
+import { useLatestAPI } from "./useLatestAPI";
 
 export function useCategories() {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
@@ -20,7 +20,9 @@ export function useCategories() {
       try {
         setCategories({ data: {}, isLoading: true });
         const response = await fetch(
-          `${WZL_API.API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
+          `${
+            WZL_API.API_BASE_URL
+          }/documents/search?ref=${apiRef}&q=${encodeURIComponent(
             '[[at(document.type, "category")]]'
           )}&lang=en-us&pageSize=30`,
           {
