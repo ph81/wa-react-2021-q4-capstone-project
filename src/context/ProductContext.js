@@ -7,6 +7,9 @@ import {
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_SINGLE_PRODUCT_BEGIN,
+  GET_SINGLE_PRODUCT_SUCCESS,
+  GET_SINGLE_PRODUCT_ERROR
 } from "../utils/actions";
 
 const initialState = {
@@ -54,9 +57,10 @@ export const ProductsProvider = ({ children }) => {
     };
   }, [url]);
 
-  /*
+  
 // fetching a single product
 const fetchSingleProduct = async (url) => {
+
   console.log('begin');
   dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
 
@@ -73,14 +77,10 @@ const fetchSingleProduct = async (url) => {
     dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
   }
 }
-/*
-  useEffect(() => {
-    fetchProducts(url);
-  }, [url])
-  */
+
 
   return (
-    <ProductsContext.Provider value={{ ...state }}>
+    <ProductsContext.Provider value={{ ...state, fetchSingleProduct }}>
       {children}
     </ProductsContext.Provider>
   );

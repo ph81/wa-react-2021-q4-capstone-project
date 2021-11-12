@@ -1,23 +1,37 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useProductsContext } from "../context/ProductContext";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { WZL_API } from "../utils/constants";
 import Loading from "./Loading";
 import Error from "./Error";
-import AddToCart from "./AddToCart";
+import AddToCartDetail from "./AddToCartDetail";
 import styles from "../styles/ProductDetail.module.css";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const { products, loading, error } = useProductsContext();
-  const [product, setProduct] = useState(null);
+  const history = useHistory();
+  //const { products, loading, error } = useProductsContext();
+  const { single_product_loading: loading, single_product_error: error, single_product: product, fetchSingleProduct } = useProductsContext();
+  //fetching data
+  const single_url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22${id}%22%29+%5D%5D`;
+  //console.log(single_url);
+  
+  useEffect(() => {
+    fetchSingleProduct(single_url);
+    // eslint-disable-next-line
+  }, [id]);
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        history.push('/');
+      }, 3000);
+    }
+    // eslint-disable-next-line
+  }, [error]);
 
   const selectedImage = useRef();
   const transformImage = useRef();
-
-  useEffect(() => {
-    const product = products.filter((item) => item.id === id);
-    setProduct(product);
-  }, [id, products]);
 
   if (loading) {
     return <Loading />;
@@ -30,7 +44,7 @@ const ProductDetail = () => {
   if (!product) {
     return null;
   } // pull off the props from product
-  //console.log(product[0].id);
+  console.log(product);
 
   /*
   const resizeImage = (idx) => {
@@ -84,7 +98,7 @@ const ProductDetail = () => {
             </div>
             <div className={styles["purchase-info"]}>
               {product[0]?.data?.stock > 0 && (
-                <AddToCart product={product} showQuantity={true} />
+                <AddToCartDetail product={product}  />
               )}
             </div>
             <div className={styles["product-detail"]}>

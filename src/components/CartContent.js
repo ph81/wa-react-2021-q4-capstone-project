@@ -1,6 +1,5 @@
 import React from "react";
 import { useCartContext } from "../context/CartContext";
-import PropTypes from "prop-types";
 import CartColumns from "./CartColumns";
 import CartItem from "./CartItem";
 import CartTotals from "./CartTotals";
@@ -36,7 +35,4 @@ const CartContent = () => {
 
 export default CartContent;
 
-CartContent.propTypes = {
-  cart: PropTypes.arrayOf(PropTypes.string),
-  clearCart: PropTypes.bool,
-};
+

@@ -6,6 +6,7 @@ import {
   TOGGLE_CART_ITEM_AMOUNT,
   CLEAR_CART,
   COUNT_CART_TOTALS,
+  ADD_TO_CART_DETAIL,
 } from "../utils/actions";
 
 const getLocalStorage = () => {
@@ -31,7 +32,15 @@ export const CartProvider = ({ children }) => {
 
   // add to cart
   const addToCart = (id, amount, product) => {
+    console.log(product);
     dispatch({ type: ADD_TO_CART, payload: { id, amount, product } });
+  };
+
+  // add to cart from product detail
+  const addToCartFromDetail = (id, amount, product) => {
+    console.log('context detail');
+    console.log(id);
+    dispatch({ type: ADD_TO_CART_DETAIL, payload: { id, amount, product } });
   };
 
   // remove item
@@ -56,7 +65,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}
+      value={{ ...state, addToCart, addToCartFromDetail, removeItem, toggleAmount, clearCart }}
     >
       {children}
     </CartContext.Provider>

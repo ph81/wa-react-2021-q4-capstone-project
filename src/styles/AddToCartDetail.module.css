@@ -1,0 +1,25 @@
+.add__container {
+   display: flex;
+   flex-wrap: nowrap;
+   align-items: center;
+ }
+ 
+ .detail__cart {
+   margin-top: 3rem;
+   margin-left: 1rem;
+   color: white;
+   height: 3rem;
+   width: 70%;
+   font-weight: bold;
+   padding: 10px;
+   text-align: center;
+   background-color: var(--clr-primary-3);
+   border: 1px solid transparent;
+   border-radius: 0.3rem;
+ }
+ 
+ .detail__cart:hover {
+   background-color: var(--clr-primary-1);
+   cursor: pointer;
+ }
+ 

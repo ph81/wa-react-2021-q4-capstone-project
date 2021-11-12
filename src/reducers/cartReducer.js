@@ -1,5 +1,6 @@
 import {
   ADD_TO_CART,
+  ADD_TO_CART_DETAIL,
   CLEAR_CART,
   COUNT_CART_TOTALS,
   REMOVE_CART_ITEM,
@@ -34,6 +35,41 @@ const cartReducer = (state, action) => {
         image: product.data.mainimage.url,
         price: product.data.price,
         max: product.data.stock,
+      };
+      return { ...state, cart: [...state.cart, newItem] };
+    }
+  }
+
+  if (action.type === ADD_TO_CART_DETAIL) {
+    console.log('reducer detail');
+    const { id, amount, product } = action.payload;
+    console.log(product);
+    const tempItem = state.cart.find((i) => i.id === id);
+
+    if (tempItem) {
+      const tempCart = state.cart.map((cartItem) => {
+        if (cartItem.id === id) {
+          let newAmount = cartItem.amount + amount;
+          if (newAmount > cartItem.max) {
+            newAmount = cartItem.max;
+          }
+
+          return { ...cartItem, amount: newAmount };
+        } else {
+          return cartItem;
+        }
+      });
+
+      return { ...state, cart: tempCart };
+    } else {
+     
+      const newItem = {
+        id: product[0]?.id,
+        name: product[0]?.data?.name,
+        amount,
+        image: product[0]?.data?.mainimage.url,
+        price: product[0]?.data?.price,
+        max: product[0]?.data?.stock,
       };
       return { ...state, cart: [...state.cart, newItem] };
     }

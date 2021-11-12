@@ -6,14 +6,7 @@ import PageWrapper from "../components/PageWrapper";
 import ProductListView from "../components/ProductListView";
 
 const ProductsPage = () => {
-  //setting up loader
-
-  //const [isLoading, setIsLoading] = useState(true);
-  //useEffect(() => {
-  //  setTimeout(() => {
-  //    setIsLoading(false);
-  //  }, 2000);
-  //});
+  
 
   return (
     <>
