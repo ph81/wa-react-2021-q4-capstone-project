@@ -25,8 +25,9 @@ const Cart = () => {
             <CartContent />
           )}
         </main>
-        <Footer />
+       
       </div>
+      <Footer />
     </>
   );
 };

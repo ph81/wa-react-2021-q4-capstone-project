@@ -44,7 +44,7 @@ const ProductDetail = () => {
   if (!product) {
     return null;
   } // pull off the props from product
-  console.log(product);
+  
 
   /*
   const resizeImage = (idx) => {

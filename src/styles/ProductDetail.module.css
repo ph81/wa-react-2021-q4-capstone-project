@@ -39,6 +39,7 @@
   width: 100%;
   height: 90vh;
   margin-top: 10px;
+  margin-bottom: 2rem;
 }
 
 .card-left {
@@ -202,6 +203,7 @@
   .product-content {
     padding-top: 0;
   }
+  
 }
 
 @media screen and (max-width: 768px) {
@@ -213,5 +215,8 @@
   }
   .card-right {
     width: 100%;
+  }
+  .product-title, .product-price, .product-detail p {
+    font-size: 1.1rem;
   }
 }

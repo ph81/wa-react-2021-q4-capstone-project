@@ -60,8 +60,6 @@ export const ProductsProvider = ({ children }) => {
   
 // fetching a single product
 const fetchSingleProduct = async (url) => {
-
-  console.log('begin');
   dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
 
   try {

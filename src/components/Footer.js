@@ -1,13 +1,12 @@
 import React from "react";
-import styles from "../styles/Footer.module.css";
+import '../styles/Footer.module.css';
 
 const Footer = () => {
   return (
     <footer>
-      <span className={styles.copyright}>
-        Ecommerce created during Wizeline’s Academy React Bootcamp.
-      </span>
-    </footer>
+      <h3>Ecommerce created during Wizeline’s Academy React Bootcamp.</h3>
+      <h4>Made with 🤍 by <a href="https://edithmg.netlify.app" target="_blank" rel="noopener noreferrer">Edith</a>. </h4>
+      </footer>
   );
 };
 

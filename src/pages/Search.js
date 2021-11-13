@@ -14,8 +14,8 @@ const Search = () => {
           <PageWrapper name="Search results" />
           <SearchProducts />
         </main>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 };

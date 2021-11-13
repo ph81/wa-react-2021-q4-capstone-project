@@ -14,8 +14,9 @@ const SingleProduct = () => {
           <PageWrapper product />
           <ProductDetail product />
         </main>
-        <Footer />
+       
       </div>
+      <Footer />
     </>
   );
 };

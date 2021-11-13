@@ -16,8 +16,8 @@ const Home = () => {
           <ProductCategories />
           <FeaturedProducts />
         </main>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 };

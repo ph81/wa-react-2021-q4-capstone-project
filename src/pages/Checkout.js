@@ -26,8 +26,9 @@ const Checkout = () => {
           )}
           <CheckoutForm />
         </main>
-        <Footer />
+       
       </div>
+      <Footer />
     </>
   );
 };

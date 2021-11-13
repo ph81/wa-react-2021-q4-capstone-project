@@ -41,9 +41,7 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === ADD_TO_CART_DETAIL) {
-    console.log('reducer detail');
     const { id, amount, product } = action.payload;
-    console.log(product);
     const tempItem = state.cart.find((i) => i.id === id);
 
     if (tempItem) {
@@ -62,7 +60,6 @@ const cartReducer = (state, action) => {
 
       return { ...state, cart: tempCart };
     } else {
-     
       const newItem = {
         id: product[0]?.id,
         name: product[0]?.data?.name,

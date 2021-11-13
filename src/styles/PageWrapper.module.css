@@ -18,3 +18,10 @@
 .wrapper a:hover {
   color: hsl(22, 28%, 21%);
 }
+
+@media all and (max-width: 768px) {
+  .wrapper h3 {
+    font-size: 1rem;
+    margin: 0 20px;
+  }
+}

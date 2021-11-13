@@ -16,8 +16,8 @@ const ProductsPage = () => {
           <PageWrapper product />
           <ProductListView product />
         </main>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 };
