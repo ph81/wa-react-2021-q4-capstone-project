@@ -1,30 +1,26 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Routes from "../utils/routes";
-import { ProductsProvider } from "../context/ProductContext";
-import { FilterProvider } from "../context/FilterContext";
-import { CartProvider } from "../context/CartContext";
+import { BrowserRouter } from "react-router-dom";
+import {Home} from '../pages/Home'
 
 const renderHome = () => {
   render(
-    <ProductsProvider>
-      <FilterProvider>
-        <CartProvider>
-          <Routes />
-        </CartProvider>
-      </FilterProvider>
-    </ProductsProvider>
+  
+        <BrowserRouter>
+          <Home />
+          </BrowserRouter>
+ 
   );
 };
 
 test("Renders categories at Home page", () => {
   renderHome();
-  const catElement = screen.getByText(/Departments/i);
+  const catElement = screen.getByText(/Furniture/i);
   expect(catElement).toBeInTheDocument();
 });
 
 test("Renders featured products at Home page", () => {
    renderHome();
-   const ftProduct = screen.getByText(/New collection/i);
+   const ftProduct = screen.getByText(/Greyton/i);
    expect(ftProduct).toBeInTheDocument();
 })

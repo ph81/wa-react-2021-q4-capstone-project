@@ -34,9 +34,12 @@ export const FilterProvider = ({ children }) => {
         dispatch({ type: GET_CATEGORIES_SUCCESS, payload: categories });
       } catch (error) {
         if (axios.isCancel(error)) {
-          dispatch({ type: GET_CATEGORIES_ERROR });
+          //console.log('Request canceled', error.message);
+          return;
+          //dispatch({ type: GET_CATEGORIES_ERROR });
         } else {
-          throw error;
+          dispatch({ type: GET_CATEGORIES_ERROR });
+          //throw error;
         }
       }
     };

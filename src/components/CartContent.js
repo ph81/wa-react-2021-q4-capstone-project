@@ -11,6 +11,7 @@ const CartContent = () => {
 
   return (
     <section>
+      <h2>Your cart</h2>
       <CartColumns />
       {cart.map((item) => {
         return <CartItem key={item.id} {...item} />;

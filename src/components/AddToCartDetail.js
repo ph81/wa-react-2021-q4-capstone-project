@@ -8,7 +8,7 @@ const AddToCartDetail = ({ product }) => {
   const { addToCartFromDetail } = useCartContext();
   const { id, stock } = product;
   const [amount, setAmount] = useState(1);
-  console.log(product);
+  //console.log(product);
 
   const increase = () => {
     setAmount((oldAmount) => {

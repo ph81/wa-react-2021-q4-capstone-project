@@ -7,7 +7,7 @@ const CheckoutForm = () => {
   return (
     <section>
       <div className={styles["user__info"]}>
-        <h2>Billing address</h2>
+        <h2>Billing info</h2>
         <form>
           <label>
             First name:
@@ -37,7 +37,7 @@ const CheckoutForm = () => {
             Order notes:
             <textarea rows="5" cols="33" />
           </label>
-          <button type="submit">Save my info</button>
+          <button type="submit">Proceed to checkout</button>
         </form>
       </div>
       <CartContent />

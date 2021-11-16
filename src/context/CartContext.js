@@ -38,8 +38,8 @@ export const CartProvider = ({ children }) => {
 
   // add to cart from product detail
   const addToCartFromDetail = (id, amount, product) => {
-    console.log('context detail');
-    console.log(id);
+    //console.log('context detail');
+    //console.log(id);
     dispatch({ type: ADD_TO_CART_DETAIL, payload: { id, amount, product } });
   };
 

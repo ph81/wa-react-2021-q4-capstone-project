@@ -40,12 +40,17 @@ export const ProductsProvider = ({ children }) => {
         const response = await axios.get(url, { cancelToken: source.token });
         const products = response.data.results;
         //console.log(products);
+        
         dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
       } catch (error) {
+        //console.log(axios.isCancel(error));
         if (axios.isCancel(error)) {
+          //console.log('Request canceled', error.message);
+          return;
+        } 
+        else {
           dispatch({ type: GET_PRODUCTS_ERROR });
-        } else {
-          throw error;
+          //throw error;
         }
       }
     };
@@ -53,6 +58,7 @@ export const ProductsProvider = ({ children }) => {
     fetchProducts();
 
     return () => {
+      //console.log('is cancelled');
       source.cancel();
     };
   }, [url]);
@@ -60,20 +66,31 @@ export const ProductsProvider = ({ children }) => {
   
 // fetching a single product
 const fetchSingleProduct = async (url) => {
+  const source = axios.CancelToken.source();
   dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
 
   try {
-    const response = await axios.get(url);
-    //console.log(response);
+    const response = await axios.get(url, { cancelToken: source.token });
     const singleProduct = response.data.results;
-    //const singleProduct = mockdata[0].data.results;
-    //console.log(singleProduct);
 
     dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
 
   } catch (error) {
-    dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+      if (axios.isCancel(error)) {
+        console.log('Request canceled', error.message);
+        return;
+      } 
+      else {
+        dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+        //throw error;
+      }
   }
+
+  return () => {
+    //console.log('is cancelled');
+    source.cancel();
+  };
+  
 }
 
 
