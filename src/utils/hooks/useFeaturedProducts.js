@@ -19,7 +19,7 @@ export function useFeaturedProducts() {
     async function getFeaturedProducts() {
       try {
         setFeaturedProducts({ data: {}, isLoading: true });
-        console.log(apiRef);
+        //console.log(apiRef);
         const response = await fetch(
           `${WZL_API.API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
             '[[at(document.type, "product")]]'

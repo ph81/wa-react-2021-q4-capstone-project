@@ -26,7 +26,7 @@ export const ProductsContext = createContext();
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  //fetching data
+  //fetching data 
   const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.PRODUCTS_URL}`;
   console.log(url);
 

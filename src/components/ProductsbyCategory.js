@@ -9,6 +9,7 @@ import styles from "../styles/ProductsbyCategory.module.css";
 const ProductsbyCategory = () => {
   const { slug } = useParams();
   const { products, products_error } = useProductsContext();
+  
   //pagination
   const {
     firstContentIndex,
@@ -42,7 +43,7 @@ const ProductsbyCategory = () => {
           ))}
 
         
-<div className={"pagination"}>
+        <div className={"pagination"}>
           <button
             onClick={prevPage}
             className={`page ${page === 1 && "disabled"}`}

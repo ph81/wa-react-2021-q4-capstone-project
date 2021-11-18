@@ -8,7 +8,7 @@ export const WZL_API = {
   FEATURED_URL:
     "%5B%5Bat(document.type%2C%20%22product%22)%5D%5D&q=%5B%5Bat(document.tags%2C%20%5B%22Featured%22%5D)%5D%5D&lang=en-us&pageSize=16",
   PRODUCTS_URL:
-    "%5B%5Bat(document.type%2C%20%22product%22)%5D%5D&lang=en-us&pageSize=30",
+    "%5B%5Bat(document.type%2C%20%22product%22)%5D%5D&lang=en-us&pageSize=75",
   //API_ID: "YWYpRBIAACwA3RZ5",
   API_ID: "YZW96RIAACkAuvhC"
 };
