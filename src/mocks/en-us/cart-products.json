@@ -1,0 +1,19 @@
+[
+   {
+     "id": "YWMHuxIAAC8Azxdw",
+     "name": "Grayton Armchair",
+     "amount": 1,
+     "image": "https://images.prismic.io/wizeline-academy/2a136772-dcee-4eba-9da4-ad3468504bdb_1.webp?auto=compress,format",
+     "price": 1689.74,
+     "max": 8
+   },
+   {
+     "id": "YWJKhBIAACkAy8ew",
+     "name": "Tyler Poly Reclining Leather Armchair",
+     "amount": 1,
+     "image": "https://images.prismic.io/wizeline-academy/6b30b79d-12c6-4411-9808-2f629d141afe_1.webp?auto=compress,format",
+     "price": 2124.25,
+     "max": 5
+   }
+ ]
+ 

@@ -16,6 +16,7 @@ export function useFeaturedBanners() {
 
     const controller = new AbortController();
 
+
     async function getFeaturedBanners() {
       try {
         setFeaturedBanners({ data: {}, isLoading: true });

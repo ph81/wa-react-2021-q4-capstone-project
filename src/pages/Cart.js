@@ -17,7 +17,7 @@ const Cart = () => {
         <main>
           <PageWrapper name="Cart" />
           {cart.length < 1 ? (
-            <section>
+            <section  data-testid="cart">
               <h2>Your cart is empty</h2>
               <Link to="/products">Go Shopping!</Link>
             </section>

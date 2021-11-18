@@ -10,7 +10,7 @@ const CartContent = () => {
   const { cart, clearCart } = useCartContext();
 
   return (
-    <section>
+    <section data-testid="cart-content">
       <h2>Your cart</h2>
       <CartColumns />
       {cart.map((item) => {

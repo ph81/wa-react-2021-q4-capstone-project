@@ -28,7 +28,7 @@ export const ProductsProvider = ({ children }) => {
 
   //fetching data
   const url = `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.API_ID}&q=${WZL_API.PRODUCTS_URL}`;
-  //console.log(url);
+  console.log(url);
 
   // fetching products
   useEffect(() => {
