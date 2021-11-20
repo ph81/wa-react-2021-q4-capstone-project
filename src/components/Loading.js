@@ -6,7 +6,7 @@ import styles from "../styles/Loading.module.css";
 const Loading = () => {
   return (
     <div className={styles.loader}>
-      <h3>Loading products...</h3>
+      <h3>Loading content...</h3>
       <Loader
         type="Grid"
         color="#1e232b"

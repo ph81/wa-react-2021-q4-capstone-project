@@ -79,14 +79,18 @@ const ProductListView = () => {
       <div className={styles["list__container"]}>
         {filterArray.length === 0
           ? products
-              .slice(firstContentIndex, lastContentIndex)
+              
               .map((product) => <ProductCard key={product.id} {...product} />)
+              .slice(firstContentIndex, lastContentIndex)
           : products
               .filter((product) =>
                 product.data.category.id.includes(filterArray)
               )
+              
+              .map((product) => <ProductCard key={product.id} {...product} />)
               .slice(firstContentIndex, lastContentIndex)
-              .map((product) => <ProductCard key={product.id} {...product} />)}
+        }
+
 
         <div className={"pagination"}>
           <button

@@ -1,19 +1,17 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Routes from "../utils/routes";
-import { ProductsProvider } from "../context/ProductContext";
-import { FilterProvider } from "../context/FilterContext";
-import { CartProvider } from "../context/CartContext";
+import { BrowserRouter } from "react-router-dom";
+import Header from '../components/Header';
+import { CartProvider } from '../context/CartContext';
 
 const renderHeader = () => {
   render(
-    <ProductsProvider>
-      <FilterProvider>
-        <CartProvider>
-          <Routes />
-        </CartProvider>
-      </FilterProvider>
-    </ProductsProvider>
+    <CartProvider>
+      <BrowserRouter>
+      <Header />
+     </BrowserRouter>
+    </CartProvider>
+
   );
 };
 

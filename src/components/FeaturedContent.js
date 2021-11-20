@@ -40,6 +40,7 @@ const FeaturedContent = () => {
             return (
               <SwiperSlide key={banner.id} className={styles["swiper-slide"]}>
                 <img src={banner.data.main_image.url} alt={banner.data.title} />
+                
               </SwiperSlide>
             );
           })}
