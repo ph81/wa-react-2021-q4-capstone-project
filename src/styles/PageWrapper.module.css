@@ -1,22 +1,27 @@
 .wrapper {
-    background: hsl(22, 31%, 88%);
-    width: 100%;
-    min-height: 7vh;
-    display: flex;
-    align-items: center;
-    color: hsl(22, 28%, 21%);
-  }
-  
-  
+  background: hsl(22, 31%, 88%);
+  width: 100%;
+  min-height: 7vh;
+  display: flex;
+  align-items: center;
+  color: hsl(22, 28%, 21%);
+}
+
+.wrapper h3 {
+  margin-left: 9rem;
+}
+.wrapper a {
+  color: hsl(22, 28%, 37%);
+  padding: 0.5rem;
+  transition: all 0.3s linear;
+}
+.wrapper a:hover {
+  color: hsl(22, 28%, 21%);
+}
+
+@media all and (max-width: 768px) {
   .wrapper h3 {
-    margin-left: 9rem;
+    font-size: 1rem;
+    margin: 0 20px;
   }
-    .wrapper a {
-      color: hsl(22, 28%, 37%);
-      padding: 0.5rem;
-      transition: all 0.3s linear;;
-    }
-    .wrapper a:hover {
-      color: hsl(22, 28%, 21%);
-    }
-  
+}

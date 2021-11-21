@@ -1,45 +1,61 @@
-import React from 'react';
-import { useCartContext } from '../context/CartContext';
-//import {formatPrice} from '../utils/helpers';
-import QuantityBtn from './QuantityBtn';
-import { FiTrash } from 'react-icons/fi';
-import styles from '../styles/CartItem.module.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useCartContext } from "../context/CartContext";
+import PropTypes from "prop-types";
+import QuantityBtn from "./QuantityBtn";
+import { FiTrash } from "react-icons/fi";
+import styles from "../styles/CartItem.module.css";
+import { Link } from "react-router-dom";
 
 const CartItem = ({ id, image, name, price, amount }) => {
   const { removeItem, toggleAmount } = useCartContext();
   const increase = () => {
-    toggleAmount(id, 'inc');
+    toggleAmount(id, "inc");
   };
 
   const decrease = () => {
-    toggleAmount(id, 'dec');
+    toggleAmount(id, "dec");
   };
 
   return (
-     <section>
-       <article className={styles["cart__item"]}>
-      <div className={styles["title"]}>
-        <img src={image} alt={name} />
-        <div>
-          <Link to={`/products/${id}`}>
-          <h4>{name}</h4>
-          </Link>
+    <section>
+      <article className={styles["cart__item"]}>
+        <div className={styles["title"]}>
+          <img src={image} alt={name} />
+          <div>
+            <Link to={`/products/${id}`}>
+              <h4>{name}</h4>
+            </Link>
+          </div>
         </div>
-      </div>
-      <h4 className={styles["price"]}>${price}</h4>
-    
-      <h4>
-      <QuantityBtn amount={amount} increase={increase} decrease={decrease} 
-      className={styles["quantity__item"]} />
-      </h4>
-      <h4 className={styles.subtotal}>{(price * amount)}</h4>
-      <button type='button' className={styles["remove__btn"]} onClick={() => removeItem(id)}>
-        <FiTrash />
-      </button>
+        <h4 className={styles["price"]}>${price}</h4>
+
+        <h4>
+          <QuantityBtn
+            amount={amount}
+            increase={increase}
+            decrease={decrease}
+            className={styles["quantity__item"]}
+          />
+        </h4>
+        <h4 className={styles.subtotal}>{price * amount}</h4>
+        <button
+          type="button"
+          className={styles["remove__btn"]}
+          onClick={() => removeItem(id)}
+        >
+          <FiTrash />
+        </button>
       </article>
-     </section>
-  )
-}
+    </section>
+  );
+};
 
 export default CartItem;
+
+CartItem.propTypes = {
+  id: PropTypes.string,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  amount: PropTypes.number,
+};

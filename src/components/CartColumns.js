@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from '../styles/CartColumns.module.css';
+import React from "react";
+import styles from "../styles/CartColumns.module.css";
 
 const CartColumns = () => {
   return (
@@ -13,7 +13,7 @@ const CartColumns = () => {
       </div>
       <hr />
     </div>
-  )
-}
+  );
+};
 
 export default CartColumns;

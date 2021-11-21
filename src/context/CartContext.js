@@ -1,15 +1,18 @@
-import React, { useEffect, useContext, useReducer } from 'react';
-import reducer from '../reducers/cartReducer';
-import { ADD_TO_CART, 
-        REMOVE_CART_ITEM, 
-        TOGGLE_CART_ITEM_AMOUNT, 
-        CLEAR_CART, 
-        COUNT_CART_TOTALS } from '../utils/actions';
+import React, { useEffect, useContext, useReducer } from "react";
+import reducer from "../reducers/cartReducer";
+import {
+  ADD_TO_CART,
+  REMOVE_CART_ITEM,
+  TOGGLE_CART_ITEM_AMOUNT,
+  CLEAR_CART,
+  COUNT_CART_TOTALS,
+  ADD_TO_CART_DETAIL,
+} from "../utils/actions";
 
 const getLocalStorage = () => {
-  let cart = localStorage.getItem('cart');
+  let cart = localStorage.getItem("cart");
   if (cart) {
-    return JSON.parse(localStorage.getItem('cart'));
+    return JSON.parse(localStorage.getItem("cart"));
   } else {
     return [];
   }
@@ -29,7 +32,15 @@ export const CartProvider = ({ children }) => {
 
   // add to cart
   const addToCart = (id, amount, product) => {
+    console.log(product);
     dispatch({ type: ADD_TO_CART, payload: { id, amount, product } });
+  };
+
+  // add to cart from product detail
+  const addToCartFromDetail = (id, amount, product) => {
+    //console.log('context detail');
+    //console.log(id);
+    dispatch({ type: ADD_TO_CART_DETAIL, payload: { id, amount, product } });
   };
 
   // remove item
@@ -49,10 +60,16 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: COUNT_CART_TOTALS });
-    localStorage.setItem('cart', JSON.stringify(state.cart));
+    localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
 
-  return <CartContext.Provider value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider
+      value={{ ...state, addToCart, addToCartFromDetail, removeItem, toggleAmount, clearCart }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 };
 
 export const useCartContext = () => {

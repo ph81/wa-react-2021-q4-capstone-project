@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 
-export function usePagination ({ contentPerPage, count }) {
+export function usePagination({ contentPerPage, count }) {
   const [page, setPage] = useState(1);
   // number of pages in total (total items / content on each page)
   const pageCount = Math.ceil(count / contentPerPage);
@@ -52,6 +51,4 @@ export function usePagination ({ contentPerPage, count }) {
     lastContentIndex,
     page,
   };
-};
-
-
+}

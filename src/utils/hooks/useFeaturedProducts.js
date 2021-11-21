@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { WZL_API } from '../constants';
 import { useLatestAPI } from './useLatestAPI';
@@ -8,20 +9,22 @@ export function useFeaturedProducts() {
     data: {},
     isLoading: true,
   }));
-
+  
   useEffect(() => {
     if (!apiRef || isApiMetadataLoading) {
       return () => {};
     }
 
     const controller = new AbortController();
-
     async function getFeaturedProducts() {
       try {
         setFeaturedProducts({ data: {}, isLoading: true });
+        //console.log(apiRef);
         const response = await fetch(
-          `${WZL_API.API_BASE_URL}/documents/search?ref=${WZL_API.FEATURED_URL}&q=${encodeURIComponent(
-            '[[at(document.tags, "Featured")]]'
+          `${WZL_API.API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
+            '[[at(document.type, "product")]]'
+          )}&q=${encodeURIComponent(
+            '[[at(document.tags, ["Featured"])]]'
           )}&lang=en-us&pageSize=16`,
           {
             signal: controller.signal,
@@ -42,6 +45,6 @@ export function useFeaturedProducts() {
       controller.abort();
     };
   }, [apiRef, isApiMetadataLoading]);
-
+  
   return featuredProducts;
 }
