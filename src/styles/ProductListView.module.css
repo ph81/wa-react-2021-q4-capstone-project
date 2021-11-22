@@ -9,7 +9,7 @@
   margin-left: 1rem;
   text-align: left;
   color: white;
-  background-color: hsl(22, 28%, 37%);
+  background-color: var(--clr-primary-3);
 }
 
 .filter__container h4 {
@@ -29,9 +29,11 @@
 @media all and (max-width: 768px) {
   .filter__container {
     display: flex;
-    width: 80vw;
-    max-width: 80vw;
+    width: 100vw;
+    max-width: 100vw;
     margin-top: 0;
+    margin-left: 0;
+    padding-bottom: 1.5rem;
   }
 
   .filter__container h4 {
@@ -59,7 +61,7 @@
   width: 70%;
   max-width: 1200px;
   margin: 0 auto;
-  background: #fff;
+ 
   padding-top: 1rem;
 }
 
