@@ -5,16 +5,20 @@ import Routes from "./utils/routes";
 import { ProductsProvider } from "./context/ProductContext";
 import { FilterProvider } from "./context/FilterContext";
 import { CartProvider } from "./context/CartContext";
+import { UserProvider } from "./context/UserContext";
 
 const App = () => {
   return (
-    <ProductsProvider>
+    <UserProvider>
+      <ProductsProvider>
       <FilterProvider>
         <CartProvider>
           <Routes />
         </CartProvider>
       </FilterProvider>
     </ProductsProvider>
+    </UserProvider>
+    
   );
 };
 

@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.8.0",
+    "@stripe/react-stripe-js": "^1.6.0",
+    "@stripe/stripe-js": "^1.21.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
+    "dotenv": "^10.0.0",
     "fuse.js": "^6.4.6",
     "hookrouter": "^1.2.5",
     "husky": "^7.0.4",
@@ -20,6 +24,7 @@
     "react-loader-spinner": "^4.0.0",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "styled-components": "^5.3.3",
     "swiper": "^6.8.4",
     "swr": "^1.0.1",
     "web-vitals": "^1.0.1"
