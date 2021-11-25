@@ -9,17 +9,20 @@ import Testing from "../pages/Testing";
 import ByCategory from "../pages/ByCategory";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
+import PrivateRoute from "../pages/PrivateRoute";
 
 const Routes = () => {
   return (
     <>
-      <BrowserRouter>
+    
+    <BrowserRouter>
+   
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route path="/search" component={Search} />
           <Route path="/cart" component={Cart} />
-          <Route path="/checkout" component={Checkout} />
+          <PrivateRoute path="/checkout" component={Checkout} />
           <Route exact path="/allproducts" component={AllProducts} />
           <Route exact path="/products" component={ProductsPage} />
           <Route exact path="/products/:id" component={SingleProduct} />
@@ -27,7 +30,9 @@ const Routes = () => {
           <Route exact path="/testing/" component={Testing} />
           <Route path="*" component={Error} />
         </Switch>
+     
       </BrowserRouter>
+    
     </>
   );
 };

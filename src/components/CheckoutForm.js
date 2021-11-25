@@ -1,5 +1,6 @@
 import React from "react";
 import CartContent from "./CartContent";
+import StripeCheckout from './StripeCheckout'
 //import { Link } from 'react-router-dom';
 import styles from "../styles/CheckoutForm.module.css";
 
@@ -41,6 +42,7 @@ const CheckoutForm = () => {
         </form>
       </div>
       <CartContent />
+      <StripeCheckout />
     </section>
   );
 };

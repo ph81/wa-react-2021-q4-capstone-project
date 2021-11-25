@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import styles from "../styles/Header.module.css";
-import { FiMenu, FiX, FiSearch, FiUser } from "react-icons/fi";
+import { FiMenu, FiX, FiSearch, FiUserMinus, FiUserPlus } from "react-icons/fi";
 import CartBtn from "./CartBtn";
 import { useHistory } from "react-router-dom";
-//import { useCartContext } from '../context/CartContext';
+import { useUserContext } from '../context/UserContext'
 import cx from "classnames";
 
 const Header = () => {
+
+  const { loginWithRedirect, myUser, logout } = useUserContext();
   // Setting up menu logic
   const [isMenuActive, setMenuActive] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
@@ -103,7 +105,14 @@ const Header = () => {
           className={isMenuActive ? styles["hide-icon"] : styles["fixed-icon"]}
         >
           <span>
-            <FiUser />{" "}
+          {myUser ? (
+          
+          <FiUserMinus onClick={() => {
+            logout({ returnTo: window.location.origin });
+          }} />
+          ) : (
+          <FiUserPlus onClick={loginWithRedirect} />
+          )}
           </span>
         </div>
         <div
