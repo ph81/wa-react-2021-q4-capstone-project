@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-const CheckoutForm = () => {
+const StripeCheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
   const { myUser } = useUserContext();
   const history = useHistory();
@@ -125,7 +125,7 @@ const StripeCheckout = () => {
   return (
     <Wrapper>
       <Elements stripe={promise}>
-        <CheckoutForm />
+        <StripeCheckoutForm />
       </Elements>
     </Wrapper>
   );
