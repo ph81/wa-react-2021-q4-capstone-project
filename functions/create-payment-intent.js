@@ -10,7 +10,7 @@ exports.handler = async function (event, context) {
     console.log(cart, total_amount, shipping_fee);
 
     const calculateOrderAmount = () => {
-      return shipping_fee + total_amount;
+      return (shipping_fee + total_amount)*100;
     };
 
     try {

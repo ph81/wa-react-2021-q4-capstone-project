@@ -13,6 +13,7 @@ const StripeCheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
   const { myUser } = useUserContext();
   const history = useHistory();
+  //console.log(total_amount);
 
   // Stripe Stuff
 
