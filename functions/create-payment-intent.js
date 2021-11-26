@@ -9,7 +9,6 @@ exports.handler = async function (event, context) {
     const { cart, shipping_fee, total_amount } = JSON.parse(event.body);
 
     const calculateOrderAmount = () => {
-       console.log(total_amount);
       return shipping_fee + total_amount;
     };
 
